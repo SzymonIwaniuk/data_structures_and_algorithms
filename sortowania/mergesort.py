@@ -1,5 +1,13 @@
 def mergeSort(A, Left, Right): 
-    def merge(A, Left, Mid, Right):
+    if Left < Right:
+        Mid = (Right+Left) // 2
+        mergeSort(A, Left, Mid) #lewa
+        mergeSort(A, Mid + 1, Right) #prawa
+        merge(A, Left, Right)
+
+
+def merge(A, Left, Right):
+        Mid = (Right+Left) // 2
         Len1 = Mid - Left + 1
         Len2 = Right - Mid
         Left_A = A[Left:Mid+1] #Left - Mid
@@ -25,12 +33,6 @@ def mergeSort(A, Left, Right):
             A[Main_index] = Right_A[Right_index]
             Right_index += 1
             Main_index += 1
-
-    if Left < Right:
-        Mid = (Right+Left) // 2
-        mergeSort(A, Left, Mid) #lewa
-        mergeSort(A, Mid + 1, Right) #prawa
-        merge(A, Left, Mid, Right)
 
 
 from random import randint
