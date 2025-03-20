@@ -17,12 +17,12 @@ class BSTNode:
 def max_rank(T):
 
     maxi = 0
-    cur = BSTNode(T[0])
+    root = BSTNode(T[0])
     n = len(T)
 
     for i in range(1,n): # Przejscie po tablicy O(n)
         cnt = 0
-        copy = cur
+        copy = root
 
         while True: # Wstawienie elemetnu do drzewa O(logn)
 
@@ -52,4 +52,4 @@ def max_rank(T):
     #Calosc O(nlogn)
 
 
-print(max_rank([5,3,9,4]))
+print(max_rank([5,3,4,5,9,4]))

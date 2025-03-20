@@ -1,5 +1,26 @@
 from zad2testy import runtests
 
+'''
+Dana jest n-elementowa tablica liczb naturalnych T oraz dodatnie liczby naturalne k i p, gdzie
+k ≤ p ≤ n. Niech zi będzie k-tym największym spośród elementów: T[i], T[i+1], ..., T[i+p-1].
+Innymi słowy, zi to k-ty największy element w T w przedziale indeksów od i do i + p − 1 włącznie.
+
+Doprecyzowanie: Rozważmy tablicę [17,25,25,30]. W tej tablicy 1-wszy największy element
+to 30, 2-gi największy element to 25, 3-ci największy element to także 25 (drugie wystąpienie), a
+4-ty największy element to 17.
+
+Proszę zaimplementować funkcję ksum(T, k, p), która dla tablicy T (o rozmiarze n elementów) i
+dodatnich liczb naturalnych k i p (k ≤ p ≤ n) wylicza i zwraca wartość sumy:
+z0 + z1 + z2 + . . . + zn−p
+Przykład. Dla wejścia:
+T = [7,9,1,5,8,6,2,12]
+k = 4
+p = 5
+wywołanie ksum(T, k, p) powinno zwrócić wartość 17 (odpowiadającą sumie 5 + 5 + 2 + 5).
+Algorytm powinien być możliwie jak najszybszy. Proszę uzasadnić poprawność zaproponowanego
+algorytmu oraz oszacować jego złożoność czasową i pamięciową
+'''
+
 def partition(A, low, high):
     pivot = A[high]
     i = low - 1
