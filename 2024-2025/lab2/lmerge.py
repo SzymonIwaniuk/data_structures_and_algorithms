@@ -1,7 +1,8 @@
- adaptacja algorytmu sortowania przez scalania
+# adaptacja algorytmu sortowania przez scalania
 # algorytm znajduje w linked liscie kolejne serie naturalne (seria naturalne to niemalejacy ciag liczb) i odpina je parami
 # algorytm scala parami listy
 # postępujemy w ten sposob, do póki aż lista nie będzie składać się dokładnie z jednej serii naturalnej
+
 class Node:
     def __init__(self, val, next=None):
         self.val = val

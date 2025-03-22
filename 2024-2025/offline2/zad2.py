@@ -104,8 +104,6 @@ def mergesort(A,l,r):
         mergesort(A,mid+1,r)
         merge(A,l,r)
 
-
-
 def count_inversions(A):
     global INV_CNT
     INV_CNT = 0
@@ -114,7 +112,8 @@ def count_inversions(A):
 
 #T = [1,21,3,5,4]
 #print(count_inversions(T))
-#Odkomentuj by uruchomic duze testy
+
+# Odkomentuj by uruchomic duze testy
 runtests( count_inversions, all_tests=True )
 
 # Zakomentuj gdy uruchamiasz duze testy

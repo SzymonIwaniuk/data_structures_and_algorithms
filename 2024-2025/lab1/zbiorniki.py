@@ -1,16 +1,16 @@
-"""
+'''
 Woda spływa z kranu do zbiorników, które są połączone rurami.
 Zbiornik jest opisany krotką z górną i dolną wysokością danego zbiornika (górna jest pierwsza).
 Pole przekroju danego zbiornika to 1 m2. Woda zawsze spłynie na sam dół.
 Mamy podaną ilość m3 wody jako l i mamy podać, do jakiej wysokości woda zapełni zbiorniki.
 Wysokości są zmiennoprzecinkowe.
-"""
+'''
 
-"""
+'''
 Definiujemy funkcję L(h), która zwróci ilość wody, którą trzeba nalać, aby zapełnić zbiorniki do
 podanej wysokości. Potem metodą bisekcji szukamy takiego h, dla którego funkcja L(h) da rozwiązanie bliskie l.
 Dzięki temu znajdziemy wysokość, o którą nas pytają.
-"""
+'''
 
 
 def L(T, h):

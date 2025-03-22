@@ -13,6 +13,7 @@ def right(i):
 def parent(i):
     return i//2
 
+#Wstawiamy element na koniec kopca i jezeli jest ne > parent wynosimy go do gory
 def insert(T, ne):
     n = len(T)
 
