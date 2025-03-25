@@ -1,12 +1,6 @@
 from zad2testy import runtests
 
 """
-Algorytmy i Struktury Danych
-Zadanie offline 2 (19.III.2025)
-Format rozwiązań
-Jak w zadaniu nr 1.
-Testowanie rozwiązań
-Żeby przetestować rozwiązanie zadania, należy wykonać polecenie: python zad2.py
 Dana jest tablica T zawierająca liczby naturalne. Proszę napisać funkcję count inversions(T),
 która dla tablicy zwraca liczbę inwersji w tablicy.
 Na przykład dla wejścia:
