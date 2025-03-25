@@ -1,6 +1,6 @@
 from zad2testy import runtests
 
-'''
+"""
 Dana jest n-elementowa tablica liczb naturalnych T oraz dodatnie liczby naturalne k i p, gdzie
 k ≤ p ≤ n. Niech zi będzie k-tym największym spośród elementów: T[i], T[i+1], ..., T[i+p-1].
 Innymi słowy, zi to k-ty największy element w T w przedziale indeksów od i do i + p − 1 włącznie.
@@ -19,19 +19,21 @@ p = 5
 wywołanie ksum(T, k, p) powinno zwrócić wartość 17 (odpowiadającą sumie 5 + 5 + 2 + 5).
 Algorytm powinien być możliwie jak najszybszy. Proszę uzasadnić poprawność zaproponowanego
 algorytmu oraz oszacować jego złożoność czasową i pamięciową
-'''
+"""
+
 
 def partition(A, low, high):
     pivot = A[high]
     i = low - 1
 
-    for j in range(low,high):
+    for j in range(low, high):
         if A[j] <= pivot:
             i += 1
             A[i], A[j] = A[j], A[i]
 
-    A[i+1], A[high] = A[high], A[i+1]
-    return i+1
+    A[i + 1], A[high] = A[high], A[i + 1]
+    return i + 1
+
 
 def quickselect(A, low, high, k):
     if low <= high:
@@ -44,21 +46,20 @@ def quickselect(A, low, high, k):
             return quickselect(A, low, pivot_index - 1, k)
 
 
-
 def ksum(T, k, p):
     n = len(T)
-    suma =  0
+    suma = 0
     prev_r = None
     prev = None
     for i in range(n - p + 1):
-        A = T[i:i+p]
-        lval = A[p-1]
+        A = T[i : i + p]
+        lval = A[p - 1]
 
         if prev_r == None:
             # print(A)
             # print(quickselect(A,0,p-1,k))
             prev_r = A[0]
-            b = quickselect(A,0,p-1,p-k)
+            b = quickselect(A, 0, p - 1, p - k)
             suma += b
             prev = b
 
@@ -70,12 +71,12 @@ def ksum(T, k, p):
             prev_r = A[0]
         else:
             prev_r = A[0]
-            b = quickselect(A,0,p-1,p-k)
+            b = quickselect(A, 0, p - 1, p - k)
             suma += b
             prev = b
 
     return suma
 
-# zmien all_tests na True zeby uruchomic wszystkie testy
-runtests( ksum, all_tests=True )
 
+# zmien all_tests na True zeby uruchomic wszystkie testy
+runtests(ksum, all_tests=True)

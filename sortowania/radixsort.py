@@ -1,8 +1,10 @@
 from math import log10
 from random import randint
 
+
 def digits(n):
     return int(log10(n)) + 1
+
 
 def countingsort(A, divisor):
     counter_length = 10
@@ -23,6 +25,7 @@ def countingsort(A, divisor):
     for i in range(n):
         A[i] = output[i]
 
+
 def radixsort(A):
     if not A:
         return A
@@ -30,11 +33,11 @@ def radixsort(A):
     k = digits(max(A))
 
     for i in range(k):
-        countingsort(A, 10 ** i)
+        countingsort(A, 10**i)
 
     return A
 
 
-A = [randint(1,101) for _ in range(15)]
+A = [randint(1, 101) for _ in range(15)]
 print(A)
 print(radixsort(A))

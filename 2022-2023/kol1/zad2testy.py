@@ -5,7 +5,7 @@ from zad2test_spec import ALLOWED_TIME, TEST_SPEC, gentest
 from copy import deepcopy
 
 
-def copyarg( arg ):
+def copyarg(arg):
     return deepcopy(arg)
 
 
@@ -15,15 +15,15 @@ def printarg(T, k, p):
     print("p = ", p)
 
 
-def printhint( hint ):
+def printhint(hint):
     print("Prawidlowy wynik:\t", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu:\t", limit(sol))
 
 
-def check( T, k, p, hint, sol ):
+def check(T, k, p, hint, sol):
     good = True
 
     if hint != sol:
@@ -32,12 +32,12 @@ def check( T, k, p, hint, sol ):
 
     return good
 
- 
-def generate_tests(num_tests = None):
+
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = [{}]
-    TESTS[0]["arg"] = [[7,9,1,5,8,6,2,12], 4, 5]
-    TESTS[0]["hint"]= 17
+    TESTS[0]["arg"] = [[7, 9, 1, 5, 8, 6, 2, 12], 4, 5]
+    TESTS[0]["hint"] = 17
 
     if num_tests is not None:
         TEST_SPEC = TEST_SPEC[:num_tests]
@@ -52,6 +52,15 @@ def generate_tests(num_tests = None):
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

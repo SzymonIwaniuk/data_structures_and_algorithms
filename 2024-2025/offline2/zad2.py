@@ -1,5 +1,6 @@
 from zad2testy import runtests
-'''
+
+"""
 Algorytmy i Struktury Danych
 Zadanie offline 2 (19.III.2025)
 Format rozwiązań
@@ -12,9 +13,9 @@ Na przykład dla wejścia:
 T = [1,20,6,4,5]
 wywołanie count inversion(T) powinno zwrócić 5. Algorytm powinien być możliwie jak najszyb-
 szy. Proszę podać złożoność czasową i pamięciową zaproponowanego algorytmu.
-'''
+"""
 
-#1----------------------------------------------------------------------------->
+# 1----------------------------------------------------------------------------->
 # class BSTNode:
 #     def __init__ (self, val=None, right=None, left=None):
 #         self.val = val
@@ -23,8 +24,7 @@ szy. Proszę podać złożoność czasową i pamięciową zaproponowanego algory
 #         self.smaller = 0
 
 
-
-# def count_inversions(A):
+# def count_inversions(A: list) -> int:
 #     l = len(A)
 #     root = BSTNode(A[0])
 #     suma = 0
@@ -61,16 +61,17 @@ szy. Proszę podać złożoność czasową i pamięciową zaproponowanego algory
 # T = [1,20,6,4,5]
 # #print(count_inversions(T))
 
-#2------------------------------------------------------------------------------>
+# 2------------------------------------------------------------------------------>
 
-def merge(A,l,r):
+
+def merge(A: list, l: int, r: int) -> int:
     global INV_CNT
 
-    mid = (l + r)//2
+    mid = (l + r) // 2
     len1 = mid - l + 1
     len2 = r - mid
-    l_A = A[l:mid+1]
-    r_A = A[mid+1:r+1]
+    l_A = A[l : mid + 1]
+    r_A = A[mid + 1 : r + 1]
     l_ind = r_ind = 0
     main_ind = l
 
@@ -85,7 +86,6 @@ def merge(A,l,r):
 
         main_ind += 1
 
-
     while l_ind < len1:
         A[main_ind] = l_A[l_ind]
         main_ind += 1
@@ -97,24 +97,26 @@ def merge(A,l,r):
         r_ind += 1
 
 
-def mergesort(A,l,r):
+def mergesort(A, l, r):
     if l < r:
-        mid = (l+r)//2
-        mergesort(A,l,mid)
-        mergesort(A,mid+1,r)
-        merge(A,l,r)
+        mid = (l + r) // 2
+        mergesort(A, l, mid)
+        mergesort(A, mid + 1, r)
+        merge(A, l, r)
+
 
 def count_inversions(A):
     global INV_CNT
     INV_CNT = 0
-    mergesort(A,0,len(A)-1)
+    mergesort(A, 0, len(A) - 1)
     return INV_CNT
 
-#T = [1,21,3,5,4]
-#print(count_inversions(T))
+
+# T = [1,21,3,5,4]
+# print(count_inversions(T))
 
 # Odkomentuj by uruchomic duze testy
-runtests( count_inversions, all_tests=True )
+runtests(count_inversions, all_tests=True)
 
 # Zakomentuj gdy uruchamiasz duze testy
 # runtests( count_inversions, all_tests=False )

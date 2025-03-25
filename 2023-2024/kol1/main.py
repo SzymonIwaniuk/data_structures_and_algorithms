@@ -7,7 +7,7 @@ rozmiarze n elementów zwróci maksymalną rangę pośród wszystkich elementów
 
 
 class BSTNode:
-    def __init__ (self,val=None, left=None, right=None):
+    def __init__(self, val=None, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
@@ -20,11 +20,11 @@ def max_rank(T):
     root = BSTNode(T[0])
     n = len(T)
 
-    for i in range(1,n): # Przejscie po tablicy O(n)
+    for i in range(1, n):  # Przejscie po tablicy O(n)
         cnt = 0
         copy = root
 
-        while True: # Wstawienie elemetnu do drzewa O(logn)
+        while True:  # Wstawienie elemetnu do drzewa O(logn)
 
             if copy.val >= T[i]:
 
@@ -41,7 +41,7 @@ def max_rank(T):
                 cnt += copy.leftsize + 1
                 if copy.right == None:
                     copy.right = BSTNode(T[i])
-                    maxi = max(cnt,maxi)
+                    maxi = max(cnt, maxi)
                     break
 
                 else:
@@ -49,7 +49,7 @@ def max_rank(T):
 
     return maxi
 
-    #Calosc O(nlogn)
+    # Calosc O(nlogn)
 
 
-print(max_rank([5,3,4,5,9,4]))
+print(max_rank([5, 3, 4, 5, 9, 4]))

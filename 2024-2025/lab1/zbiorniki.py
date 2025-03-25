@@ -1,16 +1,16 @@
-'''
+"""
 Woda spływa z kranu do zbiorników, które są połączone rurami.
 Zbiornik jest opisany krotką z górną i dolną wysokością danego zbiornika (górna jest pierwsza).
 Pole przekroju danego zbiornika to 1 m2. Woda zawsze spłynie na sam dół.
 Mamy podaną ilość m3 wody jako l i mamy podać, do jakiej wysokości woda zapełni zbiorniki.
 Wysokości są zmiennoprzecinkowe.
-'''
+"""
 
-'''
+"""
 Definiujemy funkcję L(h), która zwróci ilość wody, którą trzeba nalać, aby zapełnić zbiorniki do
 podanej wysokości. Potem metodą bisekcji szukamy takiego h, dla którego funkcja L(h) da rozwiązanie bliskie l.
 Dzięki temu znajdziemy wysokość, o którą nas pytają.
-'''
+"""
 
 
 def L(T, h):
@@ -21,12 +21,13 @@ def L(T, h):
             s += h - bottom
 
         elif h >= top:
-            s += (top - bottom)
+            s += top - bottom
 
         return s
 
+
 def h(T, l):
-    eps = 1e-10 
+    eps = 1e-10
     a = 0
 
     b = max(T, key=lambda x: x[0])[0]
@@ -42,11 +43,7 @@ def h(T, l):
 
     return mid
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     T = [(2.5, 0.0), (4.2, 1.5), (8.1, 6.0)]
     print(h(T, 5.3))
-
-
-
-
-

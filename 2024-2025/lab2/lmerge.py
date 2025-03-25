@@ -3,15 +3,18 @@
 # algorytm scala parami listy
 # postępujemy w ten sposob, do póki aż lista nie będzie składać się dokładnie z jednej serii naturalnej
 
+
 class Node:
     def __init__(self, val, next=None):
         self.val = val
         self.next = next
 
+
 def print_list(x):
     while x:
         print(x.val, end=" -> ")
         x = x.next
+
 
 # scalanie dwoch posortowanych list
 def l_merge(l1, l2):
@@ -45,6 +48,7 @@ def l_cut(l):
         else:
             return res
 
+
 def l_sort(l):
     while True:
         cnt = 0
@@ -59,7 +63,7 @@ def l_sort(l):
                 break
             s2 = l_cut(l)
             cnt += 1
-            s = l_merge(s1,s2)
+            s = l_merge(s1, s2)
             tail.next = s.next
             while tail.next is not None:
                 tail = tail.next
