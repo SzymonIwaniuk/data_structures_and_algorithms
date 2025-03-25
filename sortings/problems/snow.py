@@ -1,4 +1,4 @@
-from zad2testy import runtests
+
 """
 System chłodzenia serwerów na pewnej uczelni wymaga stałych dostaw śniegu. Grupa zmotywowa-
 nych profesorów odnalazła w wysokich górach wąwóz, z którego można przywieźć śnieg. Wąwóz jest
@@ -32,6 +32,7 @@ z obszaru 2 wjeżdżając z dowolnego kierunku (po dwóch dniach ilość śniegu
 zmniejszy się z 3m3 do 1m3).
 Zadanie można rozwiązać w czasie O(n log n), gdzie n to rozmiar wąwozu
 """
+
 
 def parent(i: int) -> int:
     return (i - 1) // 2
@@ -83,7 +84,3 @@ def snow(S: list) -> int:
         heapify(S, 0, ind)
 
     return suma
-
-
-# zmien all_tests na True zeby uruchomic wszystkie testy
-runtests(snow, all_tests=True)

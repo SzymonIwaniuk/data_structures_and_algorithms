@@ -1,5 +1,3 @@
-from random import randint
-
 """
 Dana jest dwuwymiarowa tablica T o rozmiarach N × N wypełniona liczbami naturalnymi (liczby
 są parami różne). Proszę zaimplementować funkcję Median(T), która przekształca tablicę T , tak

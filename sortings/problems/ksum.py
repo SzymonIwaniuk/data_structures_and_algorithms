@@ -1,5 +1,3 @@
-from zad2testy import runtests
-
 """
 Dana jest n-elementowa tablica liczb naturalnych T oraz dodatnie liczby naturalne k i p, gdzie
 k ≤ p ≤ n. Niech zi będzie k-tym największym spośród elementów: T[i], T[i+1], ..., T[i+p-1].
@@ -78,5 +76,4 @@ def ksum(T, k, p):
     return suma
 
 
-# zmien all_tests na True zeby uruchomic wszystkie testy
 runtests(ksum, all_tests=True)
