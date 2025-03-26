@@ -74,6 +74,3 @@ def ksum(T, k, p):
             prev = b
 
     return suma
-
-
-runtests(ksum, all_tests=True)
