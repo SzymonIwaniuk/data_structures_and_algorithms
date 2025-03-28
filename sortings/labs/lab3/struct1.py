@@ -1,7 +1,40 @@
 """
-Prosze zaproponowac strukture danych w ktorej operacje insert() get_mediana() maja zlozonosc O(logn)
-
-Tworzymy 2 kopce min i max w jednej tablicy (zakladamy ze oba kopce maja taki sam rozmiar rozniocy sie
-co najwyzej o 1) wiec max_el <= mediana <= min_el, insert() zalezy od mediany (do ktorego kopca wstawimy
-element)
+Prosze zaproponowac strukture danych w ktorej operacje insert() rm_median() maja zlozonosc O(logn)
 """
+
+class Struct:
+    def __init__(self):
+        self.array = array
+        self.median = len(array) // 2
+
+
+    def insert_to_maxheap(x):
+
+    def insert_to_maxheap(x):
+
+    def heap_size()
+
+    def insert(x):
+
+        if x <= median:
+            if abs(heap_size(maxheap) - heap_size(minheap)) > 1:
+                insert_to_maxheap(array[n//2])
+            insert_to_minheap(x)
+
+        else:
+            if abs(heap_size(maxheap) - heap_size(minheap)) > 1:
+                insert_to_minheap(array[n//2 + 1])
+            insert_to_maxheap(x)
+
+
+
+
+
+
+
+
+
+
+
+    def rm_median()
+
