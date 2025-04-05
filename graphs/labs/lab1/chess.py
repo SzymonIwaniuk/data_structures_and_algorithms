@@ -24,12 +24,12 @@ def chess(board: list[list[int]]) -> int:
                 )
                 dfs(r + 1, c + 1)
         # down
-        if r + 1 < l:
+        elif r + 1 < l:
             if cost[r + 1][c] > cost[r][c] + board[r + 1][c]:
                 cost[r + 1][c] = min(cost[r + 1][c], cost[r][c] + board[r + 1][c])
                 dfs(r + 1, c)
         # right
-        if c + 1 < l:
+        elif c + 1 < l:
             if cost[r][c + 1] > cost[r][c] + board[r][c + 1]:
                 cost[r][c + 1] = min(cost[r][c + 1], cost[r][c] + board[r][c + 1])
                 dfs(r, c + 1)
