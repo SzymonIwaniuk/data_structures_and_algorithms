@@ -4,7 +4,7 @@ DFS dla reprezentacji macierzowej
 """
 
 
-def is_connected(G):
+def is_connected(G: list[list[int]]) -> bool:
     n = len(G)
     visited = [False for _ in range(n)]
     visited[0] = True
@@ -25,9 +25,11 @@ def is_connected(G):
     return True
 
 
-G1 = [[0, 1, 1, 0], [1, 0, 1, 1], [1, 1, 0, 1], [0, 1, 1, 0]]
+if __name__ == "__main__":
 
-G2 = [[0, 1, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]]
+    G1 = [[0, 1, 1, 0], [1, 0, 1, 1], [1, 1, 0, 1], [0, 1, 1, 0]]
 
-print(is_connected(G1))
-print(is_connected(G2))
+    G2 = [[0, 1, 0, 0], [1, 0, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]]
+
+    print(is_connected(G1))
+    print(is_connected(G2))
