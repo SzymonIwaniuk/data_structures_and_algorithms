@@ -4,7 +4,8 @@ from collections import deque
 def find_cycle(G: list[list[int]]) -> bool:
     l = len(G)
     q = deque()
-    visited = [-1] * l  # Tablica na visited i parent
+    # Tablica na visited i parent
+    visited = [-1] * l
     q.append(0)
     visited[0] = 0
 

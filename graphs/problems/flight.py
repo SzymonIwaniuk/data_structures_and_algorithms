@@ -1,4 +1,6 @@
-def flight(L, x, y, t):
+from typing import Tuple
+
+def flight(L: list[Tuple[int, int, int]], x: int, y: int, t: int) -> bool:
     l = len(L)
     vertexs = L[l - 1][1]
     G = [[] for i in range(L[0][0], L[l - 1][1] + 1)]
@@ -15,9 +17,6 @@ def flight(L, x, y, t):
 
     # dfs w reprezentacji listowej O(V + E)
     def dfs(G, v, minh, maxh, visited, i):
-        if i >= n + 1:
-            return False
-
         lenght = len(G[v])
 
         for j in range(lenght):
