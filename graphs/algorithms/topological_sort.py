@@ -7,6 +7,7 @@ def topological_sort(G: list[list[int]]) -> list[int]:
             if visited[u] == False:
                 visited[u] = True
                 dfs_visit(G, u)
+        # Jezeli krawedz nie ma juz sasiadow dodaj ja do tablicy
         reversed_array.append(v)
 
     visited = [False for _ in range(n)]
