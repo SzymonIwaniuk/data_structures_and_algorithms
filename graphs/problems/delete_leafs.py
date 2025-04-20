@@ -1,5 +1,3 @@
-from collections import deque
-
 """
 Chepeast delete all leafs in btree
 """
