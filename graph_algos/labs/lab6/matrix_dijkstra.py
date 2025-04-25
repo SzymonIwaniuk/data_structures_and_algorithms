@@ -1,3 +1,6 @@
+# 1 Algorytm dijkstry reprezentacja macierzowa
+
+
 def dijkstra(G: list[list[int]], s: int) -> list[int]:
     n = len(G)
     visited = [False] * n
@@ -22,7 +25,7 @@ def dijkstra(G: list[list[int]], s: int) -> list[int]:
             if G[v][u] > 0:
                 relax(v, u, G, distance, parent)
 
-    return distance
+    return distance, parent
 
 
 def relax(
@@ -33,7 +36,20 @@ def relax(
         parent[v] = u
 
 
+# 2 Odtwarzanie / wypisywanie najkrotszej sciezki na podstawie listy parentow
+
+
+def path_s_to_t(s: int, t: int, parent: list[int]) -> list[int]:
+    path = []
+    while t != None:
+        path.append(t)
+        t = parent[t]
+    return path[::-1]
+
+
 if __name__ == "__main__":
 
     G1 = [[0, 3, 0, 4], [3, 0, 1, 0], [0, 1, 0, 2], [4, 0, 2, 0]]
-    print(dijkstra(G1, 0))
+    weights, parents = dijkstra(G1, 0)
+    print(weights)
+    print(path_s_to_t(0, 3, parents))
