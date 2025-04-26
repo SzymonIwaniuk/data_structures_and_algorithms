@@ -67,7 +67,6 @@ def przewodnik_turystyczny(M: list[list[list[int, float]]], s: int, t: int) -> (
             path.append(s)
 
             return w, path[::-1]
-
     return -1
 
 # Overall O(ElogV)
