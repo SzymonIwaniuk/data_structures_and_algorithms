@@ -1,4 +1,4 @@
-# 5 Przewodnik turystyczny: Podaj sciezke z s do t gdzie waga jej najmniejszej krawedzi jak najwieksza.
+ # 5 Przewodnik turystyczny: Podaj sciezke z s do t gdzie waga jej najmniejszej krawedzi jak najwieksza.
 
 # Umieszczamy w kolejce priorytetowej typu max
 # Stosujemy strukture union_find i sciagmy maksymalna krawedz oraz u.max, v.max wraz z nia
