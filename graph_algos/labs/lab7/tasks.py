@@ -17,7 +17,7 @@
 # 4. Domkniecie przechodnie grafu G skierowanego to taki graf G' ze jesli G ma sciezke z u do v to G' ma krawedz z u do v
 # Checemy algorytm obliczajacy domkniecie przechodnie rep macierzowa
 # algorytm floyda - warshalla
-# dostajemy macierz incydencji i robimy graf jol
+# dostajemy macierz incydencji i tworzymy graf
 
 
 # 5 Algorytm kruskala
