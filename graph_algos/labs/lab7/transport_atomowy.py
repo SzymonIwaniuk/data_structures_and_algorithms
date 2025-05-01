@@ -8,8 +8,7 @@
 # O(V^3) zlozonosc wzorcowa
 
 # Floyd-warshall dzieki czemu mamy odleglosci miedzy kazdym wierzcholkiem
-# pary pozycji technika a i b ktory ma wieksze odleglosci dla kazdej pary sprawdzamy czy je mozna polaczyc
-# Nastepnie bfs sprawdzamy czy jest sciezka z s do t
+# Zmodyfikowany BFS, gdzie do kolejki wrzucamy pary aktulanych pozycji technika A i B i zapisujemy to w visited
 
 from collections import deque
 
