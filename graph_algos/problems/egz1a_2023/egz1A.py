@@ -1,59 +1,72 @@
-# Jakub Worek 13.07.2023
-#
-# Wyliczam podstawowy koszt przejścia po grafie dijkstrą
-# Następnie przechodząc po kolejnych wierzchołkach wybieram który obrabuję
-# Wyliczam koszt dojścia do obrabowywowanego wierzchołka,
-# nakładam na graf większe ceny, wyliczam koszt dojścia do mety od
-# obrabowanego zamku i nakładam stare podstawowe ceny na graf.
-# 
-# Złożoność:
-# V razy wykonuję podwójnie algorytm Dijkstry zatem
-# szacuję na O(V*ElogV), ale w pesymistycznym przypadku 
-# E = V^2
-# Zatem ostatecznie: O(V^3logV)
+from heapq import heappop, heappush
+from typing import Tuple
 
-from egz1Atesty import runtests
-from queue import PriorityQueue
+def dijkstra_normal(G: list[Tuple[int ,int]], s: int) -> list[int]:
+    n = len(G)
+    cost_tab = [float('inf')] * n
+    cost_tab[s] = 0
+    Q = [(0, s)]
 
-def dijkstra(graph, s, t):
-    n = len(graph)
-    q = PriorityQueue()
-    dist = [float("inf") for _ in range(n)]
-    parrent = [None for _ in range(n)]
-    dist[s] = 0
-    q.put((0,s))
+    while Q:
+        cur_cost, v = heappop(Q)
 
-    while not q.empty():
-        distance, u = q.get()
-        for v, time in graph[u]:
-            if dist[v] > dist[u] + time:
-                dist[v] = dist[u] + time
-                parrent[v] = u
-                q.put((dist[v], v))
-    return dist[t]
+        if cur_cost > cost_tab[v]:
+            continue
 
-def gold(G,V,s,t,r):
-  # tu prosze wpisac wlasna implementacje
-  n = len(G)
-  koszt_bez_rabowania = dijkstra(G, s, t)
-  min_koszt = koszt_bez_rabowania
-  for v in range(n):
-      if v == s: koszt_przed_obrabowaniem = 0
-      else: koszt_przed_obrabowaniem = dijkstra(G, s, v)
-      for wierzcholek in range(n):
-          for kr in range(len(G[wierzcholek])):
-            nowa_tupla = (G[wierzcholek][kr][0], (2*G[wierzcholek][kr][1]) + r)
-            G[wierzcholek][kr] = nowa_tupla
-      ile_zrabowal = V[v]
-      if v == t: koszt_po_obrabowaniu = 0
-      else: koszt_po_obrabowaniu = dijkstra(G, v, t)
-      koszt_przejscia = koszt_przed_obrabowaniem + koszt_po_obrabowaniu - ile_zrabowal
-      min_koszt = min(min_koszt, koszt_przejscia)
-      for wierzcholek in range(n):
-          for kr in range(len(G[wierzcholek])):
-            nowa_tupla = (G[wierzcholek][kr][0], (G[wierzcholek][kr][1]-r)//2)
-            G[wierzcholek][kr] = nowa_tupla
-  return min_koszt
+        for u, cost in G[v]:
+            if cost_tab[u] > cur_cost + cost:
+                cost_tab[u] = cur_cost + cost
+                heappush(Q, (cost_tab[u], u))
+
+    return cost_tab
+
+
+def dijkstra_robbed(G: list[Tuple[int ,int]], t: int, r: int) -> list[int]:
+    n = len(G)
+    cost_tab = [float('inf')] * n
+    cost_tab[t] = 0
+    Q = [(0, t)]
+
+    while Q:
+        cur_cost, v = heappop(Q)
+
+        if cur_cost > cost_tab[v]:
+            continue
+
+        for u, cost in G[v]:
+            if cost_tab[u] > cur_cost + cost * 2 + r:
+                cost_tab[u] = cur_cost + cost * 2 + r
+                heappush(Q, (cost_tab[u], u))
+
+    return cost_tab
+
+def gold(G: list[Tuple[int ,int]], V: list[int], s: int, t: int, r: int) -> int:
+    lenght = len(V)
+    cost_normal = dijkstra_normal(G, s)
+    cost_robbed = dijkstra_robbed(G, t, r)
+    # print(cost_normal)
+    # print(cost_robbed)
+
+    mini = float('inf')
+
+    for i in range(lenght):
+        mini = min(mini, cost_normal[i] + cost_robbed[i] - V[i], cost_normal[t])
+
+    return mini
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
-runtests( gold, all_tests = True )
+if __name__ == '__main__':
+    from egz1Atesty import runtests
+    runtests( gold, all_tests = True )
+
+    # G = [[(1,9), (2,2)],
+    # [(0,9), (3,2), (4,6)],
+    # [(0,2), (3,7), (5,1)],
+    # [(1,2), (2,7), (4,2), (5,3)],
+    # [(1,6), (3,2), (6,1)],
+    # [(2,1), (3,3), (6,8)],
+    # [(4,1), (5,8)] ]
+    # V = [25,30,20,15,5,10,0]
+    # s = 0; t = 6; r = 3
+    # print(gold(G, V, s, t, r))
+
