@@ -1,19 +1,26 @@
 from heapq import heappop, heappush
-from egz1atesty import runtests
+from typing import Tuple
 
-def convert_to_list(G):
+
+def convert_to_list(
+    G: list[Tuple[int, int, int]],
+) -> list[list[list[Tuple[int, int]], None]]:
     maxi = 0
     for v, u, d in G:
         maxi = max(v, u, maxi)
 
-    G_copy = [[[],None] for _ in range(maxi + 1)]
+    G_copy = [[[], None] for _ in range(maxi + 1)]
     for v, u, d in G:
         G_copy[v][0].append((u, d))
         G_copy[u][0].append((v, d))
 
     return G_copy
 
-def most_effective_bike(G, B):
+
+def most_effective_bike(
+    G: list[list[list[Tuple[int, int]], None]],
+    B: list[Tuple[int, int, int]],
+) -> list[list[list[Tuple[int, int]], (None | float)]]:
 
     for i, p, q in B:
         if G[i][1] != None:
@@ -24,16 +31,22 @@ def most_effective_bike(G, B):
 
     return G
 
-def armstrong(B, G, s, t):
+
+def armstrong(
+    B: list[Tuple[int, int, int]],
+    G: list[Tuple[int, int, int]],
+    s: int,
+    t: int,
+) -> int:
     G_copy = convert_to_list(G)
     G_copy = most_effective_bike(G_copy, B)
     n = len(G_copy)
 
-    distance = [[float('inf'), float('inf')] for _ in range(n)]
+    distance = [[float("inf"), float("inf")] for _ in range(n)]
     distance[s][0] = 0
     Q = [(0, s, None)]
 
-    #Dijkstra
+    # Dijkstra
     while Q:
         dist, v, bike = heappop(Q)
         if dist > min(distance[v]):
@@ -58,19 +71,8 @@ def armstrong(B, G, s, t):
 
     return int(min(distance[t]))
 
+
 # zmien all_tests na True zeby uruchomic wszystkie testy
-runtests( armstrong, all_tests = True )
-
-# if __name__ == '__main__':
-#     B = [ (1, 1, 2), (2, 2, 3) ]
-#     G = [ (0,1,6), (1,4,7), (4,3,4),
-#     (3,2,4), (2,0,3), (0,3,6) ]
-#     s = 0
-#     t = 4
-#     print(armstrong(B,G,s,t))
-
-
-
-
-
-
+if __name__ == "__main__":
+    from egz1atesty import runtests
+    runtests(armstrong, all_tests=True)
