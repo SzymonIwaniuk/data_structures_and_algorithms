@@ -1,5 +1,6 @@
 from typing import Tuple
 
+
 def flight(L: list[Tuple[int, int, int]], x: int, y: int, t: int) -> bool:
     l = len(L)
     vertexs = L[l - 1][1]

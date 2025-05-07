@@ -20,10 +20,7 @@ def convert_to_list(
     return G_copy
 
 
-def dijkstra(
-    G: list[list[Tuple[int, int]]],
-    s: int
-) -> list[int]:
+def dijkstra(G: list[list[Tuple[int, int]]], s: int) -> list[int]:
 
     n = len(G)
     distance = [float("inf") for _ in range(n)]

@@ -15,15 +15,17 @@
 
 from math import log
 
+
 # Case 1
 def kantor(K: list[list[int]]) -> bool:
     n = len(K)
     for v in range(n):
         for u in range(n):
-            if log((1/K[v][u]) * (1/K[u][v])) < 0:
+            if log((1 / K[v][u]) * (1 / K[u][v])) < 0:
                 return True
 
     return False
+
 
 # Case 2
 def kantor_2(K: list[list[int]]) -> bool:
@@ -32,7 +34,7 @@ def kantor_2(K: list[list[int]]) -> bool:
     for i in range(n):
         for j in range(n):
             if K[i][j]:
-                K[i][j] = log(1/K[i][j])
+                K[i][j] = log(1 / K[i][j])
 
     for k in range(n):
         for v in range(n):
@@ -48,35 +50,17 @@ def kantor_2(K: list[list[int]]) -> bool:
 
     return False
 
-if __name__ == '__main__':
-    K1 = [
-    [1.0, 2.0, 0.5],
-    [0.5, 1.0, 0.25],
-    [2.0, 4.5, 1.0]
-    ]
 
-    K2 = [
-    [1.0, 1.0, 1.0],
-    [1.0, 1.0, 1.0],
-    [1.0, 1.0, 1.0]
-    ]
+if __name__ == "__main__":
+    K1 = [[1.0, 2.0, 0.5], [0.5, 1.0, 0.25], [2.0, 4.5, 1.0]]
 
-    K3 = [
-    [1.0, 2.0, None],
-    [0.5, 1.0, 4.0],
-    [1.5, None, 1.0]
-    ]
+    K2 = [[1.0, 1.0, 1.0], [1.0, 1.0, 1.0], [1.0, 1.0, 1.0]]
 
-    K4 = [
-    [1.0, 0.9, None],
-    [1.1, 1.0, 0.95],
-    [None, None, 1.0]
-    ]
+    K3 = [[1.0, 2.0, None], [0.5, 1.0, 4.0], [1.5, None, 1.0]]
+
+    K4 = [[1.0, 0.9, None], [1.1, 1.0, 0.95], [None, None, 1.0]]
 
     print(kantor(K1))
     print(kantor(K2))
     print(kantor_2(K3))
     print(kantor_2(K4))
-
-
-

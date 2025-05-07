@@ -45,7 +45,6 @@ def jumper(G: list[list[int]], s: int, w: int) -> int:
     else:
         fastest_path = distance[w]
 
-
     def find_fastest_path(flag: bool, len_path: int, current: int) -> None:
         nonlocal fastest_path
         if current == s:
@@ -114,7 +113,6 @@ if __name__ == "__main__":
         [0, 0, 0, 6, 1, 0, 1],
         [0, 0, 0, 0, 2, 1, 0],
     ]
-
 
     print(jumper(G1, 0, 4))
     print(jumper(G2, 0, 5))

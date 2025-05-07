@@ -36,6 +36,3 @@ def beginning(G):
     time = 0
     dfs_visit(s)
     return time == n
-
-
-

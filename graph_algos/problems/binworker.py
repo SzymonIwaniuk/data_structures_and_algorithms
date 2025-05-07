@@ -7,6 +7,7 @@ def dfs_visit(w, visited):
                 return True
     return False
 
+
 def binworker(M):
     n = len(M)
     global match
@@ -19,10 +20,7 @@ def binworker(M):
             maxi += 1
     return maxi
 
-if __name__ == '__main__':
-    M = [ [ 0, 1, 3], # 0
-    [ 2, 4], # 1
-    [ 0, 2], # 2
-    [ 3 ], # 3
-    [ 3, 2] ] # 4
+
+if __name__ == "__main__":
+    M = [[0, 1, 3], [2, 4], [0, 2], [3], [3, 2]]  # 0  # 1  # 2  # 3  # 4
     print(binworker(M))

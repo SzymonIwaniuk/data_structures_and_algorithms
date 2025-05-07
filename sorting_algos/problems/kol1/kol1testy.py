@@ -5,28 +5,29 @@ from kol1test_spec import ALLOWED_TIME, TEST_SPEC, gentest
 from copy import deepcopy
 
 
-def copyarg( arg ):
-    return arg #deepcopy(arg)
+def copyarg(arg):
+    return arg  # deepcopy(arg)
 
 
-def printarg( M, D, T ):
+def printarg(M, D, T):
     print("Dlugosc ogrodzenia     : ", M)
     print("Szerokosc dla kombajnu : ", D)
     print("Lokalizacje palikow    : ", limit(T))
 
 
-def printhint( hint ):
+def printhint(hint):
     print("Wynik poprawny       : ", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu     : ", sol)
 
 
-def check( M, D, T, hint, sol ):
+def check(M, D, T, hint, sol):
     return hint == sol
 
-def generate_tests(num_tests = None):
+
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
@@ -52,6 +53,15 @@ def generate_tests(num_tests = None):
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

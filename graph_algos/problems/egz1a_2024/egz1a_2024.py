@@ -75,4 +75,5 @@ def armstrong(
 # zmien all_tests na True zeby uruchomic wszystkie testy
 if __name__ == "__main__":
     from egz1atesty import runtests
+
     runtests(armstrong, all_tests=True)

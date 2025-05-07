@@ -1,9 +1,10 @@
 from heapq import heappop, heappush
 from typing import Tuple
 
-def dijkstra_normal(G: list[Tuple[int ,int]], s: int) -> list[int]:
+
+def dijkstra_normal(G: list[Tuple[int, int]], s: int) -> list[int]:
     n = len(G)
-    cost_tab = [float('inf')] * n
+    cost_tab = [float("inf")] * n
     cost_tab[s] = 0
     Q = [(0, s)]
 
@@ -21,9 +22,9 @@ def dijkstra_normal(G: list[Tuple[int ,int]], s: int) -> list[int]:
     return cost_tab
 
 
-def dijkstra_robbed(G: list[Tuple[int ,int]], t: int, r: int) -> list[int]:
+def dijkstra_robbed(G: list[Tuple[int, int]], t: int, r: int) -> list[int]:
     n = len(G)
-    cost_tab = [float('inf')] * n
+    cost_tab = [float("inf")] * n
     cost_tab[t] = 0
     Q = [(0, t)]
 
@@ -40,24 +41,27 @@ def dijkstra_robbed(G: list[Tuple[int ,int]], t: int, r: int) -> list[int]:
 
     return cost_tab
 
-def gold(G: list[Tuple[int ,int]], V: list[int], s: int, t: int, r: int) -> int:
+
+def gold(G: list[Tuple[int, int]], V: list[int], s: int, t: int, r: int) -> int:
     lenght = len(V)
     cost_normal = dijkstra_normal(G, s)
     cost_robbed = dijkstra_robbed(G, t, r)
     # print(cost_normal)
     # print(cost_robbed)
 
-    mini = float('inf')
+    mini = float("inf")
 
     for i in range(lenght):
         mini = min(mini, cost_normal[i] + cost_robbed[i] - V[i], cost_normal[t])
 
     return mini
 
+
 # zmien all_tests na True zeby uruchomic wszystkie testy
-if __name__ == '__main__':
+if __name__ == "__main__":
     from egz1Atesty import runtests
-    runtests( gold, all_tests = True )
+
+    runtests(gold, all_tests=True)
 
     # G = [[(1,9), (2,2)],
     # [(0,9), (3,2), (4,6)],
@@ -69,4 +73,3 @@ if __name__ == '__main__':
     # V = [25,30,20,15,5,10,0]
     # s = 0; t = 6; r = 3
     # print(gold(G, V, s, t, r))
-

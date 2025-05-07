@@ -1,5 +1,6 @@
 from collections import deque
 from typing import Tuple
+
 """
 Mamy sieć autostrad między miastami, niektóre z nich są płatne.
 Kierowca chce przejechać tak, żeby zapłacić jak najmniej (Mamy graf z wagami 0 lub 1.

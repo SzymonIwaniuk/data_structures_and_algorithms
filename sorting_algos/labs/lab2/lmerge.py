@@ -81,7 +81,7 @@ def l_sort(l):
         if cnt <= 1:
             return l
 
-a = Node(5,Node(3,Node(2,Node(10,Node(5,Node(1,Node(2,Node(3,Node(4)))))))))
+
+a = Node(5, Node(3, Node(2, Node(10, Node(5, Node(1, Node(2, Node(3, Node(4)))))))))
 p = l_sort(a)
 print_list(p)
-

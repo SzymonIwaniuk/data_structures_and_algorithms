@@ -5,34 +5,37 @@ from zad3test_spec import ALLOWED_TIME, TEST_SPEC, gentest
 from copy import deepcopy
 
 
-def copyarg( arg ):
+def copyarg(arg):
     return deepcopy(arg)
 
 
-def printarg( G, s , t):
+def printarg(G, s, t):
     print("G : ", limit(G))
     print("s : ", s)
     print("t : ", t)
 
 
-def printhint( hint ):
-    print("Mozliwe wyniki  : ", limit(hint) )
+def printhint(hint):
+    print("Mozliwe wyniki  : ", limit(hint))
 
 
-def printsol( sol ):
-    print("Otrzymany wynik : ", limit(sol) )
+def printsol(sol):
+    print("Otrzymany wynik : ", limit(sol))
 
 
-def check( G, s, t, hint, sol ):
+def check(G, s, t, hint, sol):
     if sol == None:
-      print("*")
-      if len(hint) == 0: return True
-      return False
+        print("*")
+        if len(hint) == 0:
+            return True
+        return False
     sol = (min(sol), max(sol))
-    if sol in hint: return True    
+    if sol in hint:
+        return True
     return False
-    
-def generate_tests(num_tests = None):
+
+
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
@@ -45,11 +48,19 @@ def generate_tests(num_tests = None):
         newtest["arg"] = arg
         newtest["hint"] = hint
         TESTS.append(newtest)
-              
+
     return TESTS
 
 
- 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

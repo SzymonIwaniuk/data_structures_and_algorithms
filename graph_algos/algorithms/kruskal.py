@@ -1,5 +1,6 @@
 from typing import Tuple
 
+
 class Union_find:
     def __init__(self, n):
         self.rank = [1 for _ in range(n)]
@@ -23,15 +24,16 @@ class Union_find:
                 self.parent[y_node] = x_node
                 self.rank[x_node] += 1
 
-def kruskal(G: list[list[Tuple[int,float]]]) -> list[Tuple[int,int]]:
+
+def kruskal(G: list[list[Tuple[int, float]]]) -> list[Tuple[int, int]]:
     n = len(G)
     E = []
     for v in range(n):
         for u, d in G[v]:
-                if v < u:
-                    E.append([v, u, d])
+            if v < u:
+                E.append([v, u, d])
 
-    E.sort(key = lambda edge: edge[2])
+    E.sort(key=lambda edge: edge[2])
 
     union_find = Union_find(n)
     mst = []
@@ -43,14 +45,14 @@ def kruskal(G: list[list[Tuple[int,float]]]) -> list[Tuple[int,int]]:
 
     return mst
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     G = [
-    [(1, 10), (2, 6), (3, 5)],
-    [(0, 10), (3, 15)],
-    [(0, 6), (3, 4)],
-    [(0, 5), (1, 15), (2, 4), (4, 2)],
-    [(3, 2)]
+        [(1, 10), (2, 6), (3, 5)],
+        [(0, 10), (3, 15)],
+        [(0, 6), (3, 4)],
+        [(0, 5), (1, 15), (2, 4), (4, 2)],
+        [(3, 2)],
     ]
 
     print(kruskal(G))
-

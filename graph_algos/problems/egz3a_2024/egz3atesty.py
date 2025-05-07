@@ -4,27 +4,27 @@ from egz3atest_spec import ALLOWED_TIME, TEST_SPEC, gentest
 
 from copy import deepcopy
 
-                
-def copyarg( arg ):
+
+def copyarg(arg):
     return deepcopy(arg)
 
 
-def printarg( G,T,d ):
+def printarg(G, T, d):
 
     print(f"G                : ", limit(G))
     print(f"T                : ", limit(T))
-    print(f"d                : ", d )
+    print(f"d                : ", d)
 
 
-def printhint( hint ):
+def printhint(hint):
     print("Prawidlowy wynik : ", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu  : ", sol)
 
 
-def check( G, T, d, hint, sol ):
+def check(G, T, d, hint, sol):
     good = True
 
     if hint != sol:
@@ -34,17 +34,27 @@ def check( G, T, d, hint, sol ):
     return good
 
 
-def generate_tests(num_tests = None):
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
-    G = [[1,3],[0,2,4],[1,5],[0,4,6],[1,3,5,7],[2,4,8],[3,7],[4,6,8],[5,7]]
-    T = [8,2,6]
+    G = [
+        [1, 3],
+        [0, 2, 4],
+        [1, 5],
+        [0, 4, 6],
+        [1, 3, 5, 7],
+        [2, 4, 8],
+        [3, 7],
+        [4, 6, 8],
+        [5, 7],
+    ]
+    T = [8, 2, 6]
     d = 1
     hint = 3
 
     newtest = {}
-    newtest["arg"] = [G,T,d]
+    newtest["arg"] = [G, T, d]
     newtest["hint"] = hint
     TESTS.append(newtest)
 
@@ -61,6 +71,15 @@ def generate_tests(num_tests = None):
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

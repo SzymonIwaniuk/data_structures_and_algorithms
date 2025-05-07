@@ -1,4 +1,4 @@
- # 5 Przewodnik turystyczny: Podaj sciezke z s do t gdzie waga jej najmniejszej krawedzi jak najwieksza.
+# 5 Przewodnik turystyczny: Podaj sciezke z s do t gdzie waga jej najmniejszej krawedzi jak najwieksza.
 
 # Umieszczamy w kolejce priorytetowej typu max
 # Stosujemy strukture union_find i sciagmy maksymalna krawedz oraz u.max, v.max wraz z nia
@@ -16,13 +16,13 @@ class Node:
         self.val = val
         self.rank = 0
 
-    #O(logV)
+    # O(logV)
     def find(self) -> "Node":
         if self != self.parent:
             self.parent = self.parent.find()
         return self.parent
 
-    #O(logV)
+    # O(logV)
     def union(self, y: "Node") -> None:
         root1 = self.find()
         root2 = y.find()
@@ -37,7 +37,9 @@ class Node:
                 root1.rank += 1
 
 
-def przewodnik_turystyczny(M: list[list[list[int, float]]], s: int, t: int) -> (float, list[int]):
+def przewodnik_turystyczny(
+    M: list[list[list[int, float]]], s: int, t: int
+) -> (float, list[int]):
     n = len(M)
     edges = []
     parent = [None] * n
@@ -49,7 +51,7 @@ def przewodnik_turystyczny(M: list[list[list[int, float]]], s: int, t: int) -> (
 
     nodes = [Node(i) for i in range(n)]
 
-    #O(ElogV)
+    # O(ElogV)
     while edges:
         w, v, u = heapq._heappop_max(edges)
 
@@ -68,6 +70,7 @@ def przewodnik_turystyczny(M: list[list[list[int, float]]], s: int, t: int) -> (
 
             return w, path[::-1]
     return -1
+
 
 # Overall O(ElogV)
 

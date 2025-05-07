@@ -1,6 +1,7 @@
 from heapq import heappop, heappush
 from collections import deque
 
+
 def convert_to_list(G, n):
     new_list = [[] for _ in range(n)]
 
@@ -13,12 +14,13 @@ def convert_to_list(G, n):
 
     return new_list
 
+
 def double_jumps(G, n):
     jumps = [[] for _ in range(n)]
 
     for s in range(n):
         Q = deque()
-        d = [float('inf')] * n
+        d = [float("inf")] * n
 
         for v, w in G[s]:
             Q.append((v, w))
@@ -32,17 +34,17 @@ def double_jumps(G, n):
                     d[v] = jump_w
 
         for v in range(n):
-            if d[v] != float('inf'):
+            if d[v] != float("inf"):
                 jumps[s].append((v, d[v]))
 
     return jumps
 
 
-def jumper( G, s, w ):
+def jumper(G, s, w):
     n = len(G)
     G = convert_to_list(G, n)
     jumps = double_jumps(G, n)
-    d1 = [float('inf') for _ in range(n)]
+    d1 = [float("inf") for _ in range(n)]
 
     PQ = [(0, s)]
     d1[s] = 0
@@ -51,8 +53,10 @@ def jumper( G, s, w ):
     while len(PQ) > 0:
         u_w, u = heappop(PQ)
 
-        if u == w: break
-        if u_w > d1[u] and u_w > d2[u]: continue
+        if u == w:
+            break
+        if u_w > d1[u] and u_w > d2[u]:
+            continue
 
         for v, c in G[u]:
             tmp_d = (d1[u] if d1[u] < d2[u] else d2[u]) + c
@@ -115,7 +119,6 @@ if __name__ == "__main__":
         [0, 0, 0, 6, 1, 0, 1],
         [0, 0, 0, 0, 2, 1, 0],
     ]
-
 
     print(jumper(G1, 0, 4))
     print(jumper(G2, 0, 5))
