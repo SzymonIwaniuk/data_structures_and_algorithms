@@ -14,6 +14,7 @@ sumujemy koszt dojścia * 2 (ponieważ zakładamy również powrót). Złożono�
 
 
 def convert_to_list(flights: list[Tuple[int, int, int]]) -> list[list[Tuple[int, int]]]:
+
     maxi = 0
     for u, v, d in flights:
         maxi = max(maxi, u, v)
@@ -29,6 +30,7 @@ def convert_to_list(flights: list[Tuple[int, int, int]]) -> list[list[Tuple[int,
 def dijkstra(
     start_city: int, G: list[list[Tuple[int, int]]], resorts: list[int]
 ) -> int:
+
     n = len(G)
     costs = [float("inf") for _ in range(n)]
     costs[start_city] = 0
@@ -59,6 +61,7 @@ def dijkstra(
 def lets_roll(
     start_city: int, flights: list[Tuple[int, int, int]], resorts: list[int]
 ) -> int:
+
     G = convert_to_list(flights)
     return dijkstra(start_city, G, resorts)
 
