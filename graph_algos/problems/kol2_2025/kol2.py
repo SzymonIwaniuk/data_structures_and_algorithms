@@ -3,7 +3,8 @@ from heapq import heappush, heappop
 from typing import Tuple
 
 """
-Szymon Filip Iwaniuk Moje rozwiązanie wykorzystuje zmodyfikowany algorytm Dijkstry.
+Szymon Filip Iwaniuk
+Moje rozwiązanie wykorzystuje zmodyfikowany algorytm Dijkstry.
 Na początku zamieniam listę krawędzi na reprezentację listową (listę sąsiedztwa).
 Podczas działania algorytmu, jeżeli sąsiad aktualnie przetwarzanego wierzchołka jest resortem,
 to nie dodajemy go do kolejki. W przeciwnym razie dodajemy go normalnie. Rozwiązanie działa poprawnie,
