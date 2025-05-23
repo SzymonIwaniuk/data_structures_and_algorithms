@@ -2,6 +2,7 @@ from typing import TypeVar
 
 EmpType = TypeVar("EmpType", bound="Emp")
 
+#O(n)
 
 class Emp:
     def __init__(self, fun: int) -> None:
