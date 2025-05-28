@@ -10,8 +10,10 @@ się w całości na klocku, który spadł tuż przed nim.
 
 # f(i) = max { (f[0, i - 1] jeżeli przedział a_i zawiera się w przedziale a_i-1) + 1 }
 
+from typing import List
 
-def bricks(a):
+
+def bricks(a: List[List[int, int]]) -> int:
     n = len(a)
     F = [0] * n
 
@@ -28,3 +30,15 @@ def bricks(a):
 if __name__ == "__main__":
     ranges = [[0, 5], [1, 4], [-3, 7], [2, 3], [2, 6], [4, 6], [2, 3]]
     print(bricks(ranges))
+    ranges = [
+        (0, 10),
+        (1, 10),
+        (2, 6),
+        (6, 7),
+        (11, 20),
+        (11, 19),
+        (12, 18),
+        (13, 19),
+        (14, 20),
+    ]
+    (bricks(ranges))
