@@ -1,6 +1,6 @@
 from typing import List
 
-
+#O(n^3logn)
 def kstrong(T: List[int], k: int) -> int:
     n = len(T)
 
@@ -36,3 +36,8 @@ if __name__ == "__main__":
     T = [-20, 5, -1, 10, 2, -8, 10]
     k = 1
     print(kstrong(T, k))
+
+
+#O(n^2logn)
+
+
