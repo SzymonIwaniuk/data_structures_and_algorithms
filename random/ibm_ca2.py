@@ -4,7 +4,7 @@ def question1(s: str) -> int:
     right = 0
 
     for brace in s:
-        if brace == '(':
+        if brace == "(":
             left += 1
         else:
             if left > 0:
@@ -13,7 +13,6 @@ def question1(s: str) -> int:
                 right += 1
 
     return left + right
-
 
 
 def question2(s: str) -> str:
@@ -31,27 +30,27 @@ def question2(s: str) -> str:
             continue
 
         else:
-            if s[i] != 'a':
+            if s[i] != "a":
                 ind = i
                 break
 
     if ind != None:
-        return s[0:i] + 'a' + s[i+1:n]
+        return s[0:i] + "a" + s[i + 1 : n]
 
     else:
-        return 'IMPOSSIBLE'
+        return "IMPOSSIBLE"
 
 
-if __name__ == '__main__':
-    s1 = '(()))'
+if __name__ == "__main__":
+    s1 = "(()))"
     print(question1(s1))
-    s2 = '))(('
+    s2 = "))(("
     print(question1(s2))
-    s = 'mom'
+    s = "mom"
     print(question2(s))
-    s = 'aaabbaaa'
+    s = "aaabbaaa"
     print(question2(s))
-    s = 'aoa'
+    s = "aoa"
     print(question2(s))
-    s = 'aaaoaaa'
+    s = "aaaoaaa"
     print(question2(s))
