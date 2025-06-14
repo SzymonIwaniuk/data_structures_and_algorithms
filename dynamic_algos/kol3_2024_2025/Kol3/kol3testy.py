@@ -5,8 +5,9 @@ from kol3test_spec import ALLOWED_TIME, TEST_SPEC, gentest
 from copy import deepcopy
 
 
-def copyarg( arg ):
-    return arg #deepcopy(arg)
+def copyarg(arg):
+    return arg  # deepcopy(arg)
+
 
 def printarg(T):
     B, C, s = T
@@ -15,24 +16,25 @@ def printarg(T):
     print("Limit sęków\t: ", s)
 
 
-def printhint( hint ):
+def printhint(hint):
     print("\nWynik poprawny         : ", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu        : ", sol, end="\n\n")
 
 
-def check( T, hint, sol ):
+def check(T, hint, sol):
     return hint == sol
 
-def generate_tests(num_tests = None):
+
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
     newtest = {}
     B = [[2, 1, 4], [1, 3, 1], [2, 3, 3]]
-    C = [[20, 15, 8], [13,  10, 4], [8,  6, 3]]
+    C = [[20, 15, 8], [13, 10, 4], [8, 6, 3]]
     s = 5
     newtest["arg"] = [B, C, s]
     newtest["hint"] = 4
@@ -50,6 +52,15 @@ def generate_tests(num_tests = None):
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

@@ -5,6 +5,7 @@ from kol3test_spec import ALLOWED_TIME, TEST_SPEC, gentest
 from copy import deepcopy
 import json
 
+
 def copyarg(arg):
     return deepcopy(arg)
 
@@ -52,11 +53,11 @@ def generate_tests(num_tests=None):
     for spec in TEST_SPEC:
         newtest = {}
         if type(spec) is str:
-            with open(f"tests/{spec}", 'r') as f:
+            with open(f"tests/{spec}", "r") as f:
                 test_data = json.load(f)
             arg = [test_data["T"], test_data["m"]]
             hint = test_data["ans"]
-        else:        
+        else:
             arg, hint = gentest(*spec)
         newtest["arg"] = arg
         newtest["hint"] = hint
@@ -66,5 +67,14 @@ def generate_tests(num_tests=None):
 
 
 def runtests(f, all_tests=True):
-    internal_runtests(copyarg, printarg, printhint, printsol,
-                      check, generate_tests, all_tests, f, ALLOWED_TIME)
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

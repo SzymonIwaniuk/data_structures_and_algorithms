@@ -1,6 +1,9 @@
-def gen_adjacency_list(n, m, M, ng):
+from typing import List
+
+
+def gen_adjacency_list(n: int, m: int, M: List[List[int]], ng: int) -> List[List[int]]:
     G = [[] for _ in range(ng)]
-    trl = [[0] * m for _ in range(n)] # translacja
+    trl = [[0] * m for _ in range(n)]  # translacja
 
     k = 0
     for i in range(n):
@@ -23,7 +26,7 @@ def gen_adjacency_list(n, m, M, ng):
     return G
 
 
-def toposort(G, n):
+def toposort(G: List[List[int]], n: int) -> List[int]:
     visited = [False] * n
     sorted_graph = []
 
@@ -32,10 +35,9 @@ def toposort(G, n):
 
         for v in G[u]:
             if not visited[v]:
-                dfs_visit(G,v)
+                dfs_visit(G, v)
 
         sorted_graph.append(u)
-
 
     for u in range(n):
         if not visited[u]:
@@ -44,29 +46,29 @@ def toposort(G, n):
     sorted_graph.reverse()
     return sorted_graph
 
-def trip(M):
+
+def trip(M: List[List[int]]) -> int:
     n, m = len(M), len(M[0])
     ng = n * m
     G = gen_adjacency_list(n, m, M, ng)
     sorted = toposort(G, ng)
     F = [1] * ng
 
-    for i in range(ng - 2, -1, -1): # dynamiczne
+    for i in range(ng - 2, -1, -1):  # dynamiczne
         u = sorted[i]
         for v in G[u]:
-            if F[u] < F[v] + 1: F[u] = F[v] + 1
+            if F[u] < F[v] + 1:
+                F[u] = F[v] + 1
 
     res = 0
     for val in F:
-        if val > res: res = val
+        if val > res:
+            res = val
 
     return res
 
-if __name__ == '__main__':
-    M = [ [7,6,5,12],
-        [8,3,4,11],
-        [9,1,2,10] ]
+
+if __name__ == "__main__":
+    M = [[7, 6, 5, 12], [8, 3, 4, 11], [9, 1, 2, 10]]
 
     print(trip(M))
-
-

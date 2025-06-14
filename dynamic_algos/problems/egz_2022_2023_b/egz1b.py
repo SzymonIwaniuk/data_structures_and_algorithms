@@ -1,25 +1,25 @@
 from egz1btesty import runtests
 
-INF = float('inf')
+INF = float("inf")
 
-def planets( D, C, T, E ):
+
+def planets(D, C, T, E):
     # tu prosze wpisac wlasna implementacje
     n = len(D)
-    dp = [[INF] * (E+1) for i in range(n)]
+    dp = [[INF] * (E + 1) for i in range(n)]
 
     # edge case
-    for i in range(E+1):
+    for i in range(E + 1):
         dp[0][i] = i * C[0]
 
-
     for planet in range(n):
-        for fuel in range(E+1):
+        for fuel in range(E + 1):
             if dp[planet][fuel] == INF:
                 continue
 
             if fuel < E:
-                if dp[planet][fuel+1] > dp[planet][fuel] + C[planet]:
-                    dp[planet][fuel+1] = dp[planet][fuel] + C[planet]
+                if dp[planet][fuel + 1] > dp[planet][fuel] + C[planet]:
+                    dp[planet][fuel + 1] = dp[planet][fuel] + C[planet]
 
             for next_planet in range(planet + 1, n):
                 dist = D[next_planet] - D[planet]
@@ -35,12 +35,11 @@ def planets( D, C, T, E ):
                     if dp[target][0] > dp[planet][0] + price:
                         dp[target][0] = dp[planet][0] + price
 
-    #for i in range(n):
-        #print(dp[i])
+    # for i in range(n):
+    # print(dp[i])
 
-    return min(dp[n-1])
-
+    return min(dp[n - 1])
 
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
-runtests( planets, all_tests = True )
+runtests(planets, all_tests=True)

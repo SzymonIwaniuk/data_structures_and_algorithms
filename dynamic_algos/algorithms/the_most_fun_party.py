@@ -2,7 +2,8 @@ from typing import TypeVar
 
 EmpType = TypeVar("EmpType", bound="Emp")
 
-#O(n)
+# O(n)
+
 
 class Emp:
     def __init__(self, fun: int) -> None:
@@ -26,7 +27,7 @@ class Emp:
         return max(self.f_val, self.g_val)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     senior = Emp(5)
     mid1 = Emp(3)
     mid2 = Emp(6)

@@ -19,6 +19,7 @@ TEST_SPEC = [
     (1000, 1000, 291821, 101, 0.331, 1872),
 ]
 
+
 def gendesk(desklen, s, density):
     rand = float(MY_random()) / MY_modulus
     rand_density = density + rand * (1 - density)
@@ -29,19 +30,20 @@ def gendesk(desklen, s, density):
     dividers.sort()
     arr = []
     for i in range(1, len(dividers)):
-        arr.append(dividers[i] - dividers[i-1])
+        arr.append(dividers[i] - dividers[i - 1])
     return arr
 
+
 def gentest(n, m, s, initlen, density, hint):
-    B = [[0]  * m for _ in range(n)]
-    C = [[0]  * m for _ in range(n)]
+    B = [[0] * m for _ in range(n)]
+    C = [[0] * m for _ in range(n)]
 
     row = n
     col = m
 
-    initside = 'r' if MY_random() % 2 == 0 else 'c'
+    initside = "r" if MY_random() % 2 == 0 else "c"
     initdesk = gendesk(initlen, s, density)
-    if initside == 'r':
+    if initside == "r":
         row = n - 1
         col = m - len(initdesk)
         for i in range(len(initdesk)):
@@ -53,11 +55,11 @@ def gentest(n, m, s, initlen, density, hint):
             B[row + i][col] = initdesk[i]
 
     while row > 0 or col > 0:
-        side = 'r' if row > 0 else 'c'
+        side = "r" if row > 0 else "c"
         if row > 0 and col > 0:
-            side = 'r' if MY_random() % 2 == 0 else 'c'
+            side = "r" if MY_random() % 2 == 0 else "c"
 
-        if side == 'r':
+        if side == "r":
             desk = gendesk(m - col, s, density)
             row -= 1
             for i in range(len(desk)):
@@ -68,14 +70,14 @@ def gentest(n, m, s, initlen, density, hint):
             for i in range(len(desk)):
                 B[row + i][col] = desk[i]
 
-    for i in range(n-1, -1, -1):
-        for j in range(m-1, -1, -1):
+    for i in range(n - 1, -1, -1):
+        for j in range(m - 1, -1, -1):
             C[i][j] += B[i][j]
-            if i < n-1:
-                C[i][j] += C[i+1][j]
-            if j < m-1:
-                C[i][j] += C[i][j+1]
-            if i < n-1 and j < m-1:
-                C[i][j] -= C[i+1][j+1]
+            if i < n - 1:
+                C[i][j] += C[i + 1][j]
+            if j < m - 1:
+                C[i][j] += C[i][j + 1]
+            if i < n - 1 and j < m - 1:
+                C[i][j] -= C[i + 1][j + 1]
 
     return (B, C, s), hint

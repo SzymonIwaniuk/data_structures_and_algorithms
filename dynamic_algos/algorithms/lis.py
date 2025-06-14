@@ -1,4 +1,4 @@
-'''
+"""
 Longest Increasing Subsequence - LIS
 1. Znalezienie funkcji ktora bedziemy obliczac
 f(i) dlugosc najdluzszego rosnacego podciagu konczacego sie na A[i]
@@ -10,7 +10,8 @@ g(i) = max(f(0), f(1) ... f(i - 1))
 g(len(A))
 4. Implementacja
 #O(n^2)
-'''
+"""
+
 
 def lis(A: list[int]) -> int:
     n = len(A)
@@ -24,7 +25,9 @@ def lis(A: list[int]) -> int:
     return max(F)
 
 
-''' https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/ '''
+""" https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/ """
+
+
 def better_lis(A: list[int]) -> int:
     n = len(A)
     answer = []
@@ -52,7 +55,7 @@ def better_lis(A: list[int]) -> int:
     return len(answer)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     A = [7, 3, 4, 2, 6, 9, 5, 9, 1]
     print(lis(A))
     print(better_lis(A))
