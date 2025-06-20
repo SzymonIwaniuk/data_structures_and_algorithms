@@ -54,4 +54,4 @@ def armstrong(B: List[Tuple[int, int, int]], G:List[Tuple[int, int, int]], s: in
 
 if __name__ == '__main__':
   # zmien all_tests na True zeby uruchomic wszystkie testy
-  runtests( armstrong, all_tests = True )
+  runtests(armstrong, all_tests = True )
