@@ -4,11 +4,11 @@ from heapq import heappush, heappop
 
 def miasteczko_racing(D, C, k, s):
     D = [0] + D + [s]
-    #print(D)
+    # print(D)
     C = [0] + C + [inf]
-    #print(C)
+    # print(C)
     n = len(D)
-    costs = [[inf] * (k+1) for _ in range(n)]
+    costs = [[inf] * (k + 1) for _ in range(n)]
     queue = [(0, 0, k)]
 
     while queue:
@@ -19,7 +19,7 @@ def miasteczko_racing(D, C, k, s):
 
         costs[station][current_fuel] = current_cost
 
-        if station == n-1:
+        if station == n - 1:
             continue
 
         new_cost = current_cost + (k - current_fuel) * C[station]
@@ -31,15 +31,13 @@ def miasteczko_racing(D, C, k, s):
             new_cost = current_cost + (fuel - current_fuel) * C[station]
 
             if distance <= fuel:
-                heappush(queue, (new_cost, station+1, fuel-distance))
+                heappush(queue, (new_cost, station + 1, fuel - distance))
+
+    # print(costs)
+    return min(costs[n - 1])
 
 
-
-    print(costs)
-    return min(costs[n-1])
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     D = [2, 6, 8, 9, 11, 12]
     C = [5, 3, 1, 4, 2, 9]
     k = 5

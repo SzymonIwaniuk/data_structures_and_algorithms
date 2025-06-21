@@ -1,31 +1,32 @@
 # kol2testy.py
 from testy import *
+
 try:
-  from egz2atest_spec_grade import ALLOWED_TIME, TEST_SPEC, gentest
+    from egz2atest_spec_grade import ALLOWED_TIME, TEST_SPEC, gentest
 except ImportError:
-  from egz2atest_spec import ALLOWED_TIME, TEST_SPEC, gentest
+    from egz2atest_spec import ALLOWED_TIME, TEST_SPEC, gentest
 
 from copy import deepcopy
 
 
-def copyarg( arg ):
+def copyarg(arg):
     return deepcopy(arg)
 
 
-def printarg( T ):
+def printarg(T):
     print("T                : ", limit(T))
     print("2n               : ", len(T))
 
 
-def printhint( hint ):
+def printhint(hint):
     print("Prawidlowy wynik : ", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu  : ", sol)
 
 
-def check( T, hint, sol ):
+def check(T, hint, sol):
     good = True
 
     if hint != sol:
@@ -35,11 +36,11 @@ def check( T, hint, sol ):
     return good
 
 
-def generate_tests(num_tests = None):
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
-    T = [7,1,3,7,2,1]
+    T = [7, 1, 3, 7, 2, 1]
     hint = 6
     newtest = {}
     newtest["arg"] = [T]
@@ -59,6 +60,15 @@ def generate_tests(num_tests = None):
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

@@ -5,24 +5,24 @@ from egz3btest_spec import ALLOWED_TIME, TEST_SPEC, gentest
 from copy import deepcopy
 
 
-def copyarg( arg ):
+def copyarg(arg):
     return deepcopy(arg)
 
 
-def printarg( T, k ):
+def printarg(T, k):
     print(f"T : {limit(T)}")
     print(f"k : {k}")
 
 
-def printhint( hint ):
+def printhint(hint):
     print("Prawidlowy wynik : ", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu  : ", sol)
 
 
-def check( T, k, hint, sol ):
+def check(T, k, hint, sol):
     good = True
 
     if hint != sol:
@@ -32,7 +32,7 @@ def check( T, k, hint, sol ):
     return good
 
 
-def generate_tests(num_tests = None):
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
@@ -40,7 +40,7 @@ def generate_tests(num_tests = None):
     k = 3
     hint = 17
     newtest = {}
-    newtest["arg"] = [T,k]
+    newtest["arg"] = [T, k]
     newtest["hint"] = hint
     TESTS.append(newtest)
 
@@ -57,6 +57,15 @@ def generate_tests(num_tests = None):
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )
