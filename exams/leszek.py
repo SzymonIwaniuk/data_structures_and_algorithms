@@ -3,7 +3,11 @@ from math import inf, ceil
 from typing import List, Tuple
 
 
-def build_adjacency_list(edges, n):
+def build_adjacency_list(
+    edges: List[Tuple[int, int, int]],
+    n: int,
+) -> List[List[Tuple[int,int]]]:
+
     graph = [[] for _ in range(n)]
 
     for v, u, d in edges:
