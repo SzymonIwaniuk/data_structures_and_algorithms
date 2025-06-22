@@ -11,11 +11,10 @@ def pijemy(k: int, PIWO: List[int]) -> List[int]:
     count_piwo = list(enumerate(count_piwo, 1))
     count_piwo.sort(key=lambda x: x[1], reverse=True)
 
-
     for i in range(k):
         count_piwo[i] = list(count_piwo[i])
 
-    #print(count_piwo)
+    # print(count_piwo)
     new_piwo = [0] * n
     index = 0
 
@@ -40,8 +39,7 @@ def pijemy(k: int, PIWO: List[int]) -> List[int]:
     return new_piwo
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     PIWO = [1, 2, 1, 1, 1, 3, 3, 3, 2, 3]
     k = 3
     print(pijemy(k, PIWO))

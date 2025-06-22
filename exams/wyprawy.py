@@ -4,7 +4,7 @@ from math import inf
 
 def wyprawy(WI: List[Tuple[int, int, int]]) -> int:
     sorted_wyprawy = sorted(WI, key=lambda x: (x[0], -x[1]))
-    #print(sorted_wyprawy)
+    # print(sorted_wyprawy)
     n = len(WI)
     saved_electricity = -inf
 
@@ -25,6 +25,6 @@ def wyprawy(WI: List[Tuple[int, int, int]]) -> int:
     return saved_electricity
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     WI = [(1, 5, 100), (3, 4, 70), (2, 4, 90), (4, 7, 60), (4, 5, 10)]
     print(wyprawy(WI))

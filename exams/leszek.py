@@ -6,7 +6,7 @@ from typing import List, Tuple
 def build_adjacency_list(
     edges: List[Tuple[int, int, int]],
     n: int,
-) -> List[List[Tuple[int,int]]]:
+) -> List[List[Tuple[int, int]]]:
 
     graph = [[] for _ in range(n)]
 

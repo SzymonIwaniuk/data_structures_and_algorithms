@@ -6,7 +6,7 @@ from typing import List, Tuple
 def build_adjacency_list(
     edges: List[Tuple[int, int, int]],
     n: int,
-) -> List[List[Tuple[int,int]]]:
+) -> List[List[Tuple[int, int]]]:
 
     graph = [[] for _ in range(n)]
 
@@ -78,7 +78,7 @@ line = input()
 data = list(map(int, line.strip().split()))
 E, V, b, s, t = data[:5]
 KR = []
-for i in range(5, 5 + E*3, 3):
-    KR.append((data[i], data[i+1], data[i+2]))
-OD = data[len(data) -  V: len(data)]
+for i in range(5, 5 + E * 3, 3):
+    KR.append((data[i], data[i + 1], data[i + 2]))
+OD = data[len(data) - V : len(data)]
 print(abus(KR, OD, b, s, t))

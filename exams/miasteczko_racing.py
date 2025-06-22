@@ -1,8 +1,14 @@
 from math import inf
 from heapq import heappush, heappop
+from typing import List
 
 
-def miasteczko_racing(D, C, k, s):
+def miasteczko_racing(
+    D: List[int],
+    C: List[int],
+    k: int,
+    s: int,
+) -> int:
     D = [0] + D + [s]
     # print(D)
     C = [0] + C + [inf]
