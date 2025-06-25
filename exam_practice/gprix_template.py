@@ -1,8 +1,6 @@
 from math import inf
 from typing import List
-import sys
 
-sys.setrecursionlimit(1500)
 """Dijkstra tu nie dziala xp"""
 
 
