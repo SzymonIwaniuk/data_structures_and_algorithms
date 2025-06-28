@@ -1,6 +1,6 @@
-# kolutesty.py
+# egz3atesty.py
 from testy import *
-from zad8test_spec import ALLOWED_TIME, TEST_SPEC, gentest
+from egz3atest_spec import ALLOWED_TIME, TEST_SPEC, gentest
 
 from copy import deepcopy
 
@@ -9,38 +9,32 @@ def copyarg(arg):
     return deepcopy(arg)
 
 
-def printarg(T):
-    print("Pojemnosci kulekow:\t", limit(T))
+def printarg(*arg):
+    print(f"T = {limit(arg[0])}")
+    print(f"I = {limit(arg[1])}")
 
 
 def printhint(hint):
-    print("Prawidlowy wynik:\t", hint)
+    print("Poprawny wynik: ", limit(hint))
 
 
 def printsol(sol):
-    print("Wynik algorytmu:\t", limit(sol))
+    print("Otrzymany wynik: ", limit(sol))
 
 
-def check(T, hint, sol):
-    good = True
-
-    if hint != sol:
-        print("Błąd! Nieprawidlowy wynik algorytmu.")
-        good = False
-
-    return good
+def check(hint, sol):
+    return hint == sol
 
 
 def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
-    T = [5, 1, 3, 7, 8]
-    hint = 17
-
+    T = 100
+    I = [(3, 10), (0, 5), (20, 30), (25, 35), (26, 26)]
     newtest = {}
-    newtest["arg"] = [T]
-    newtest["hint"] = hint
+    newtest["arg"] = [T, I]
+    newtest["hint"] = 3
     TESTS.append(newtest)
 
     if num_tests is not None:

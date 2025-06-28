@@ -1,6 +1,6 @@
-# kolutesty.py
+# zad9testy.py
 from testy import *
-from zad8test_spec import ALLOWED_TIME, TEST_SPEC, gentest
+from zad9test_spec import ALLOWED_TIME, TEST_SPEC, gentest
 
 from copy import deepcopy
 
@@ -9,8 +9,11 @@ def copyarg(arg):
     return deepcopy(arg)
 
 
-def printarg(T):
-    print("Pojemnosci kulekow:\t", limit(T))
+def printarg(O, C, T, L):
+    print("Pozycje parkingow:\t", limit(O))
+    print("Ceny postoju:\t\t", limit(C))
+    print("Limit kilometrow bez postoju:\t", T)
+    print("Odleglosc z A do B:\t", L)
 
 
 def printhint(hint):
@@ -21,7 +24,7 @@ def printsol(sol):
     print("Wynik algorytmu:\t", limit(sol))
 
 
-def check(T, hint, sol):
+def check(O, C, T, L, hint, sol):
     good = True
 
     if hint != sol:
@@ -34,14 +37,6 @@ def check(T, hint, sol):
 def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
-
-    T = [5, 1, 3, 7, 8]
-    hint = 17
-
-    newtest = {}
-    newtest["arg"] = [T]
-    newtest["hint"] = hint
-    TESTS.append(newtest)
 
     if num_tests is not None:
         TEST_SPEC = TEST_SPEC[:num_tests]

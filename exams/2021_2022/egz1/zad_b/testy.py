@@ -3,14 +3,12 @@
 
 import sys
 
-sys.setrecursionlimit(10000)
-
 TIMER = False
-RERAISE = True
-PRINT_STATUS = False
+RERAISE = False
+PRINT_STATUS = True
 USE_STORED_TESTS = False
 SAVE_TESTS = False
-FORCE_ALL_TESTS = False
+FORCE_ALL_TESTS = True
 
 
 if TIMER:
@@ -111,7 +109,7 @@ def internal_runtests(
         arg = copyarg(d["arg"])
         arg2 = copyarg(d["arg"])
         hint = deepcopy(d["hint"])
-        printarg(*arg)
+        printarg(arg)
         printhint(hint)
         try:
             if TIMER:
@@ -119,13 +117,13 @@ def internal_runtests(
                 alarm(ACC_TIME + 1)
             time_s = time.time()
             end = time.time()
-            sol = f(*arg)
+            sol = f(arg)
             time_e = time.time()
 
             if TIMER:
                 alarm(0)
             printsol(sol)
-            res = check(*arg2, hint, sol)
+            res = check(hint, sol)
             if ACC_TIME > 0 and float(time_e - time_s) > ACC_TIME:
                 timeout += 1
                 status_line += " T"

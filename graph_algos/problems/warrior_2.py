@@ -1,6 +1,7 @@
 from collections import deque
 from typing import Tuple
 
+
 def convert_to_list(G: list[(int, int, int)]) -> list[list[Tuple[int, int]]]:
     vertexes = 0
 
@@ -16,11 +17,12 @@ def convert_to_list(G: list[(int, int, int)]) -> list[list[Tuple[int, int]]]:
     # print(G_list[1])
     return G_list
 
+
 def warrior(G: list[Tuple[int, int, int]], s: int, t: int) -> int:
 
     n = len(G)
     G_list = convert_to_list(G)
-    times = [[float('inf') for _ in range(17)] for _ in range(n)]
+    times = [[float("inf") for _ in range(17)] for _ in range(n)]
     times[s][0] = 0
 
     Q = deque()
@@ -42,10 +44,18 @@ def warrior(G: list[Tuple[int, int, int]], s: int, t: int) -> int:
     return min(times[t])
 
 
-if __name__ == '__main__':
-    G = [ (1,5,10), (4,6,12), (3,2,8),
-    (2,4,4) , (2,0,10), (1,4,5),
-    (1,0,6) , (5,6,8) , (6,3,9)]
+if __name__ == "__main__":
+    G = [
+        (1, 5, 10),
+        (4, 6, 12),
+        (3, 2, 8),
+        (2, 4, 4),
+        (2, 0, 10),
+        (1, 4, 5),
+        (1, 0, 6),
+        (5, 6, 8),
+        (6, 3, 9),
+    ]
     s = 0
     t = 6
     print(warrior(G, s, t))
