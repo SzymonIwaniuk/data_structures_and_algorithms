@@ -24,7 +24,7 @@ def common_part(array, k):
     return max_l, indexes
 
 
-def kintersect( A, k ):
+def kintersect(A, k):
     max_intersect = -1
     res = []
     A = sorted(enumerate(A), key=lambda x: x[1][0])
@@ -34,17 +34,14 @@ def kintersect( A, k ):
     # print(current_array)
 
     for i in range(n - k + 1):
-        current_array = A[i:i + k]
+        current_array = A[i : i + k]
         l, indexes = common_part(current_array, k)
-        #print(l, indexes)
+        # print(l, indexes)
         if l > max_intersect:
             max_intersect = l
             res = indexes
 
     return res
-
-
-
 
 
 runtests(kintersect)

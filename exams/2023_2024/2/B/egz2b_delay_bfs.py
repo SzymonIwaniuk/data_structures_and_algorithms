@@ -4,7 +4,6 @@ from collections import deque
 inf = float("inf")
 
 
-# 0 - 1 BFS
 def build_adjacency_list(edges, a):
     # O(m)
     graph = [[] for _ in range(a + 1)]
@@ -30,27 +29,31 @@ def tory_amos(E, A, B):
         n = types[t]
         if times[station][n] > d:
             times[station][n] = d
-            queue.appendleft((station, d, n))  # stacja, czas, rozstaw kol
+            queue.append((d, station, n, d))  # delay, stacja, rozstaw kol, czas
 
     while queue:
-        station, time, t = queue.popleft()
+        p, station, t, time = queue.popleft()
+
+        if times[station][t] < time:
+            continue
+
+        if p:
+            queue.append((p - 1, station, t, time))
+            continue
 
         for new_station, d, new_t in graph[station]:
             n = types[new_t]
-
+            # print(n)
             if n == t:
                 delay = 10 + d if n == 0 else 5 + d
             else:
                 delay = 20 + d
 
-            new_time = time + delay
+            new_time = times[station][t] + delay
 
             if times[new_station][n] > new_time:
                 times[new_station][n] = new_time
-                if delay <= 10:
-                    queue.appendleft((new_station, new_time, n))
-                else:
-                    queue.append((new_station, new_time, n))
+                queue.append((delay, new_station, n, new_time))
 
     # print(times)
     return min(times[B])

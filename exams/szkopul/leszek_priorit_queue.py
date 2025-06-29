@@ -1,4 +1,4 @@
-from heapq import heappush, heappop
+from queue import PriorityQueue
 from math import inf, ceil
 from typing import List, Tuple
 
@@ -31,19 +31,17 @@ def leszek(
 
     # time = pierwszy cykl odjazdow autobusow od aktualnej stacji
     # (current_bottles_of_water, station, time, current_cups_of_water)
-    queue = [(1, -B, OD[s], s)]
+    queue = PriorityQueue()
+    queue.put((1, -B, OD[s], s))
 
-    while queue:
-        water, cups, time, station = heappop(queue)
+    while not queue.empty():
+        water, cups, time, station = queue.get()
         cups = -cups
 
-        if bottles_of_water[station] <= water:
+        if bottles_of_water[station] < water:
             continue
 
         bottles_of_water[station] = water
-
-        if station == t:
-            return water
 
         for next_station, distance in graph[station]:
             """Czas odjazdu do nastepnej stacji = wielokrotnosc czasu odjazdu
@@ -61,7 +59,7 @@ def leszek(
             """Sprawdzenie warunku czy starcza kubkow z woda do przejazdu"""
             if distance + departure <= cups:
                 new_cups = cups - distance - departure
-                heappush(queue, (water, -new_cups, new_time, next_station))
+                queue.put((water, -new_cups, new_time, next_station))
 
             else:
                 """Jezeli nie to sprawdzenie czy kupno nowej wody pozwala dostac sie
@@ -69,10 +67,10 @@ def leszek(
                 """
                 if B >= distance + departure:
                     new_cups = B - distance - departure
-                    heappush(queue, (water + 1, -new_cups, new_time, next_station))
+                    queue.put((water + 1, -new_cups, new_time, next_station))
 
     # print(bottles_of_water)
-    return -1
+    return bottles_of_water[t] if bottles_of_water[t] != inf else -1
 
 
 if __name__ == "__main__":

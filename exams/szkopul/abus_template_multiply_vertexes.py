@@ -27,7 +27,7 @@ def abus(
 
     n = len(OD)
     graph = build_adjacency_list(KR, n)
-    bottles_of_water = [inf for _ in range(n)]
+    bottles_of_water = [[inf] * (B + 1) for _ in range(n)]
 
     # time = pierwszy cykl odjazdow autobusow od aktualnej stacji
     # (current_bottles_of_water, station, time, current_cups_of_water)
@@ -37,10 +37,10 @@ def abus(
         water, cups, time, station = heappop(queue)
         cups = -cups
 
-        if bottles_of_water[station] < water:
+        if bottles_of_water[station][cups] <= water:
             continue
 
-        bottles_of_water[station] = water
+        bottles_of_water[station][cups] = water
 
         for next_station, distance in graph[station]:
             """Czas odjazdu do nastepnej stacji = wielokrotnosc czasu odjazdu
@@ -69,7 +69,7 @@ def abus(
                     heappush(queue, (water + 1, -new_cups, new_time, next_station))
 
     # print(bottles_of_water)
-    return bottles_of_water[t] if bottles_of_water[t] != inf else -1
+    return min(bottles_of_water[t]) if min(bottles_of_water[t]) != inf else -1
 
 
 """

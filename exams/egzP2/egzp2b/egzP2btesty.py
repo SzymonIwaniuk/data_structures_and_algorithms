@@ -2,48 +2,72 @@ import sys
 from copy import deepcopy
 import time
 from random import random, randint, seed, shuffle
+from math import sqrt
 
-ALLOWED_TIME = 2
+ALLOWED_TIME = 4
 
+# n - liczba szyfrów
+# m - maksymalna długość szyfrów
+# q - liczba wysłanych wiadomości
+# hint - odpowiedź
 
 global k_seed
 k_seed = 0
 
 TEST_SPEC = [
-    # n (połączenia),  m (max),        hint (wynik)
-    (0, 0, 10),
-    (10, 7, 16),
-    (20, 25, 80),
-    (30, 50, 154),
-    (100, 150, 728),
-    (5000, 5000, 47465),
-    (25000, 25000, 251680),
-    (250000, 250000, 3167916),
-    (1000000, 1000000, 13687812),
-    (1250000, 1250000, 16635624),
+    # n, m, q, hint
+    (0, 0, 0, 1.47712125),  # 0
+    (8, 5, 10, 7.56660246),  # 0
+    (10, 5, 10, 6.84990369),  # 0
+    (2000, 15, 30000, 63275.80058149),  # 1
+    (2000, 15, 35000, 73590.18985709),  # 1
+    (5000, 18, 70000, 161072.89395236),  # 2
+    (5000, 18, 75000, 172687.29946137),  # 2
+    (20000, 20, 200000, 536343.47761579),  # 3
+    (20000, 20, 200000, 536355.99083429),  # 3
 ]
 
 
-def randint_seed(a, b):
+def f(x):
     global k_seed
-    output = randint(a, b)
     k_seed += 1
     seed(k_seed)
+    return round(sqrt(x**2 * random()))
+
+
+def gen_string(m):
+    global k_seed
+    k_seed += 1
+    seed(k_seed)
+    length = max(f(m), 1)
+    output = ""
+    for _ in range(length):
+        k_seed += 1
+        seed(k_seed)
+        output += "1" if randint(0, 1) else "0"
     return output
 
 
-def gentest(n, m, hint):
+def gen_substring(D):
+    global k_seed
+    k_seed += 1
+    seed(k_seed)
+    x = randint(0, len(D) - 1)
+    return D[x][f(len(D[x])) :]
+
+
+def gentest(n, m, q, hint):
+    global k_seed
+    D = Q = None
     if n == 0:
-        T = [2, 1, 5, 6, 2, 3]
-        return T, hint
+        D = ["0", "100", "1100", "1101", "1111"]
+        Q = ["", "1", "11", "0", "1101"]
+    else:
+        D = list(dict.fromkeys([gen_string(m) for _ in range(n)]))
+        Q = [gen_substring(D) for _ in range(q)]
+    D.sort()
 
-    T = []
-
-    for i in range(n):
-        t1 = randint(1, m)
-        T.append(t1)
-
-    return T, hint
+    return [D, Q], hint
 
 
 RERAISE = True
@@ -75,18 +99,29 @@ def timeout_handler(signum, frame):
 
 
 def internal_runtests(
-    copyarg, printhint, printsol, check, generate_tests, all_tests, f, ACC_TIME
+    copyarg,
+    printarg,
+    printhint,
+    printsol,
+    check,
+    generate_tests,
+    all_tests,
+    f,
+    ACC_TIME,
 ):
-    seed(0)
     passed, timeout, answer, exception = 0, 0, 0, 0
 
     print("Generowanie testów. Proszę czekać...")
     print("(!) To może zająć kilka sekund...")
 
-    if all_tests == False:
+    if all_tests == 0:
         TESTS = generate_tests(3)
+    elif all_tests == 1:
+        TESTS = generate_tests(5)
+    elif all_tests == 2:
+        TESTS = generate_tests(7)
     else:
-        TESTS = generate_tests(10)
+        TESTS = generate_tests(9)
 
     # A - Accepted
     # T - Timeout
@@ -102,10 +137,11 @@ def internal_runtests(
         print("Test", i)
         arg = copyarg(d["arg"])
         hint = deepcopy(d["hint"])
+        printarg(*arg)
         printhint(hint)
         try:
             time_s = time.time()
-            sol = f(arg)
+            sol = f(*arg)
             time_e = time.time()
 
             printsol(sol)
@@ -153,6 +189,11 @@ def copyarg(arg):
     return deepcopy(arg)
 
 
+def printarg(D, Q):
+    print("D: ", limit(D))
+    print("Q: ", limit(Q))
+
+
 def printhint(hint):
     print("Oczekiwany wynik: ", round(hint, 4))
 
@@ -184,5 +225,13 @@ def generate_tests(num_tests=None):
 
 def runtests(f, all_tests=3):
     internal_runtests(
-        copyarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
     )

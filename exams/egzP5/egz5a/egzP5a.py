@@ -1,8 +1,8 @@
-from egzP5atesty import runtests 
+from egzP5atesty import runtests
 from math import inf
 
 
-def inwestor ( T ):
+def inwestor(T):
     n = len(T)
     best = 0
 
@@ -15,4 +15,5 @@ def inwestor ( T ):
 
     return best
 
-runtests ( inwestor, all_tests=True)
+
+runtests(inwestor, all_tests=True)
