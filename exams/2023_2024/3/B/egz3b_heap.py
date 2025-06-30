@@ -22,8 +22,8 @@ def kunlucky(T, k):
     kset = gen_kunlucky_set(T, k, n)  # liczby z zakresu [1, ..., n], więc max_num = n
     queue = []
     max_len = 0
-    k_cnt = 0
     current_len = 0
+    k_cnt = 0
 
     for i in range(n):
         if T[i] in kset:
