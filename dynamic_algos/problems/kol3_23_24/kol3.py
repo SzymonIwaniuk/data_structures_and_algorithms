@@ -1,7 +1,8 @@
 from kol3testy import runtests
+from typing import List
 
 
-def orchard(T, m):
+def orchard(T: List[int], m: int) -> int:
     n = len(T)
     F = [[-1 for _ in range(m)] for _ in range(n)]
 

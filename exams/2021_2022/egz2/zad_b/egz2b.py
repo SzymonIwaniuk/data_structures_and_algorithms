@@ -1,8 +1,9 @@
 from egz2btesty import runtests
 from math import inf
+from typing import List
 
 
-def magic(C):
+def magic(C: List[List[int]]) -> int:
     n = len(C)
     dp = [-1 for _ in range(n)]
     dp[0] = 0

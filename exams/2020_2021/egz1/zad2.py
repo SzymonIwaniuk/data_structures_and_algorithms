@@ -1,8 +1,9 @@
 from zad2testy import runtests
 from heapq import heappush, heappop
+from typing import List, Tuple
 
 
-def robot(L, A, B):
+def robot(L: List[List[str]], A: Tuple[int, int], B: Tuple[int, int]) -> int:
     # 3 poziomy przyspieszenia, 4 możliwe kierunki, szerokość labiryntu, wysokość labiryntu
     DP = [
         [[[-1] * 3 for _ in range(4)] for _ in range(len(L[0]))] for _ in range(len(L))
