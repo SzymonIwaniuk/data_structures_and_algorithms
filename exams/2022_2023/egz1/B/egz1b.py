@@ -1,8 +1,9 @@
 from egz1btesty import runtests
 from math import inf
+from typing import List, Tuple
 
 
-def planets(D, C, T, E):
+def planets(D: List[int], C: List[int], T: List[Tuple[int, int]], E: int) -> int:
     n = len(D)
     dp = [[inf] * (E + 1) for _ in range(n)]
 
