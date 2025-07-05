@@ -1,4 +1,7 @@
-def convert_to_edges(G, n):
+from typing import List, Tuple
+
+
+def convert_to_edges(G: List[List[Tuple[int, int]]], n: int) -> List[Tuple[int, int, int]]:
     E = []
     for v in range(n):
         for u, d in G[v]:
@@ -8,7 +11,7 @@ def convert_to_edges(G, n):
     return E
 
 
-def kruskal(G):
+def kruskal(G: List[List[Tuple[int, int]]]) -> List[Tuple[int,int,int]]:
     n = len(G)
     p = [i for i in range(n)]
     r = [0] * n
@@ -23,7 +26,7 @@ def kruskal(G):
 
         return p[x]
 
-    def union(x, y):
+    def union(x: int, y: int) -> None:
         x = find(x)
         y = find(y)
 
