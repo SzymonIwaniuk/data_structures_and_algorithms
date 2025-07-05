@@ -3,3 +3,10 @@
 __pycache__/
 venv
 .venv
+
+
+random
+.random
+exams/szkopul
+exams/offline4
+exams/zad9
