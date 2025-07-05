@@ -1,8 +1,8 @@
 # egz3atesty.py
-from testy import *
-from egz3atest_spec import ALLOWED_TIME, TEST_SPEC, gentest
-
 from copy import deepcopy
+
+from egz3atest_spec import ALLOWED_TIME, TEST_SPEC, gentest
+from testy import *
 
 
 def copyarg(arg):

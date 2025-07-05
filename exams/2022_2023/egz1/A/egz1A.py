@@ -1,10 +1,11 @@
-from egz1Atesty import runtests
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 from math import inf
 from typing import List, Tuple
 
+from egz1Atesty import runtests
 
-def gold(G: List[Tuple[int,int]], V: List[int], s: int, t: int, r: int) -> int:
+
+def gold(G: List[Tuple[int, int]], V: List[int], s: int, t: int, r: int) -> int:
     n = len(G)
     costs = [[inf] * 2 for _ in range(n)]
 

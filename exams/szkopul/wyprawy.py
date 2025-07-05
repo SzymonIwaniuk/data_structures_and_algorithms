@@ -1,5 +1,5 @@
-from typing import List, Tuple
 from math import inf
+from typing import List, Tuple
 
 
 def wyprawy(WI: List[Tuple[int, int, int]]) -> int:

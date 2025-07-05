@@ -1,6 +1,7 @@
-from egz3atesty import runtests
 from collections import deque
 from math import inf
+
+from egz3atesty import runtests
 
 
 def build_graph(G, n):

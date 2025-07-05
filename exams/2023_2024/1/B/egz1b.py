@@ -1,6 +1,7 @@
-from egz1btesty import runtests
 from math import inf
 from typing import List
+
+from egz1btesty import runtests
 
 
 def kstrong(T: List[int], k: int) -> int:

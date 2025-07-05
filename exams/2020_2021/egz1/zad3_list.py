@@ -1,6 +1,6 @@
+from math import inf
+
 from zad3testy import runtests
-from math import inf
-from math import inf
 
 
 def common_part(array, k):

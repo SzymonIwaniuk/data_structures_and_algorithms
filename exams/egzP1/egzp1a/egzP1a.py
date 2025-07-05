@@ -1,5 +1,6 @@
-from egzP1atesty import runtests
 from math import inf
+
+from egzP1atesty import runtests
 
 
 def titanic(W, M, D):

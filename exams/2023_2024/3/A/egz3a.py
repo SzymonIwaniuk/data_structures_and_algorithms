@@ -1,5 +1,6 @@
-from egz3atesty import runtests
 from collections import deque
+
+from egz3atesty import runtests
 
 
 def mykoryza(G: list[list[int, int]], T: list[int], d: int) -> int:

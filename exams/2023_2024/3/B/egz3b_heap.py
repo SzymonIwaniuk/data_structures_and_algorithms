@@ -1,6 +1,7 @@
-from egz3btesty import runtests
+from heapq import heappop, heappush
 from math import inf
-from heapq import heappush, heappop
+
+from egz3btesty import runtests
 
 
 def gen_kunlucky_set(T, k, max_num):
@@ -45,4 +46,4 @@ def kunlucky(T, k):
 
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
-runtests(kunlucky, all_tests= True)
+runtests(kunlucky, all_tests=True)

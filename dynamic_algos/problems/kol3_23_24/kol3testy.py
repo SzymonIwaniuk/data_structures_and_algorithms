@@ -1,9 +1,9 @@
 # kol3testy.py
-from testy import *
-from kol3test_spec import ALLOWED_TIME, TEST_SPEC, gentest
-
-from copy import deepcopy
 import json
+from copy import deepcopy
+
+from kol3test_spec import ALLOWED_TIME, TEST_SPEC, gentest
+from testy import *
 
 
 def copyarg(arg):

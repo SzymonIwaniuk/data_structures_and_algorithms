@@ -1,5 +1,7 @@
-from egz1Atesty import runtests
 from math import inf
+
+from egz1Atesty import runtests
+
 
 def battle(P, K, R):
     n = len(K)
@@ -28,4 +30,5 @@ def battle(P, K, R):
 
     return match_count
 
-runtests( battle, all_tests=True)
+
+runtests(battle, all_tests=True)

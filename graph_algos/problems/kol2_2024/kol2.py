@@ -1,5 +1,6 @@
-from kol2testy import runtests
 from collections import deque
+
+from kol2testy import runtests
 
 
 def convert_to_list(G: list[(int, int, int)]) -> list[list[list[int, int]]]:

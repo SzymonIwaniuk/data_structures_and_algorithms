@@ -1,6 +1,7 @@
-from zad3testy import runtests
-from math import inf
 import sys
+from math import inf
+
+from zad3testy import runtests
 
 sys.setrecursionlimit(10000)
 

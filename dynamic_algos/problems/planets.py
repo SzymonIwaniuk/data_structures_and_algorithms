@@ -1,6 +1,5 @@
 from typing import List, Tuple
 
-
 INF = float("inf")
 
 

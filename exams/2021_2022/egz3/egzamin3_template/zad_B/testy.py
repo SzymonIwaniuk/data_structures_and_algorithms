@@ -16,9 +16,8 @@ FORCE_ALL_TESTS = False
 if TIMER:
     from signal import signal, alarm, SIGALRM
 
-from copy import deepcopy
 import time
-
+from copy import deepcopy
 
 if USE_STORED_TESTS:
     from STORED_TESTS import STORED_TESTS

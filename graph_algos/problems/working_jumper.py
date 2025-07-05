@@ -1,5 +1,5 @@
-from heapq import heappop, heappush
 from collections import deque
+from heapq import heappop, heappush
 
 
 def convert_to_list(G, n):

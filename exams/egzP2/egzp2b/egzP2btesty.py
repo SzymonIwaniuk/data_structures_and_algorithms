@@ -1,8 +1,8 @@
 import sys
-from copy import deepcopy
 import time
-from random import random, randint, seed, shuffle
+from copy import deepcopy
 from math import sqrt
+from random import randint, random, seed, shuffle
 
 ALLOWED_TIME = 4
 

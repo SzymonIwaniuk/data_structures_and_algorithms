@@ -1,5 +1,6 @@
-from egzP2btesty import runtests
 from math import log10
+
+from egzP2btesty import runtests
 
 
 def build_dict(D):

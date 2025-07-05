@@ -1,5 +1,6 @@
-from egz3btesty import runtests
 from math import inf
+
+from egz3btesty import runtests
 
 
 def maze(L):

@@ -1,6 +1,7 @@
-from egz3atesty import runtests
 from collections import deque
 from math import inf
+
+from egz3atesty import runtests
 
 
 def build_graph(G, n):
@@ -33,7 +34,10 @@ def goodknight(G, s, t):
             queue.append((delay - 1, time, exhaust, castle))
             continue
 
-        for new_castle, dist, in graph[castle]:
+        for (
+            new_castle,
+            dist,
+        ) in graph[castle]:
             new_exhuast = exhaust + dist
             if new_exhuast > 16:
                 new_time = time + 8 + dist

@@ -1,5 +1,6 @@
-from egzP5btesty import runtests
 from typing import Tuple
+
+from egzP5btesty import runtests
 
 
 def convert_to_list(B):

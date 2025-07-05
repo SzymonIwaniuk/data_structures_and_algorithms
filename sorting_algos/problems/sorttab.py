@@ -17,7 +17,7 @@ Algorytm powinien być możliwie jak najszybszy. Proszę podać złożoność cz
 zaproponowanego algorytmu.
 """
 
-from math import floor, ceil
+from math import ceil, floor
 
 P = [(1, 5, 0.75), (4, 8, 0.25)]
 T = [6.1, 1.2, 1.5, 3.5, 4.5, 2.5, 3.9, 7.8]

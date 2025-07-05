@@ -1,6 +1,7 @@
-from egz1atesty import runtests
 from math import floor, inf
 from queue import PriorityQueue
+
+from egz1atesty import runtests
 
 
 def edges_to_list(E):

@@ -1,7 +1,7 @@
 import sys
-from copy import deepcopy
 import time
-from random import random, randint, seed, shuffle
+from copy import deepcopy
+from random import randint, random, seed, shuffle
 
 ALLOWED_TIME = 0.10
 

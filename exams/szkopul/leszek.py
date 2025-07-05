@@ -1,5 +1,5 @@
-from heapq import heappush, heappop
-from math import inf, ceil
+from heapq import heappop, heappush
+from math import ceil, inf
 from typing import List, Tuple
 
 

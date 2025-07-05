@@ -1,6 +1,7 @@
-from zad2testy import runtests
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 from typing import List, Tuple
+
+from zad2testy import runtests
 
 
 def robot(L: List[List[str]], A: Tuple[int, int], B: Tuple[int, int]) -> int:

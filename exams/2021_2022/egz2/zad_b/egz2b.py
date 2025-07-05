@@ -1,6 +1,7 @@
-from egz2btesty import runtests
 from math import inf
 from typing import List
+
+from egz2btesty import runtests
 
 
 def magic(C: List[List[int]]) -> int:

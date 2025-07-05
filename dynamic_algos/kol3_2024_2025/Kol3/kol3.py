@@ -1,6 +1,6 @@
-from kol3testy import runtests
 from typing import List
 
+from kol3testy import runtests
 
 INF = float("inf")
 

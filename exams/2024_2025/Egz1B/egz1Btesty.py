@@ -1,12 +1,13 @@
 # egz1Btesty.py
-from testy import *
-from egz1Btest_spec import ALLOWED_TIME, TEST_SPEC, gentest
-
 from copy import deepcopy
 
+from egz1Btest_spec import ALLOWED_TIME, TEST_SPEC, gentest
+from testy import *
 
-def copyarg( arg ):
-    return arg #deepcopy(arg)
+
+def copyarg(arg):
+    return arg  # deepcopy(arg)
+
 
 def printarg(T):
     V, E = T
@@ -14,23 +15,24 @@ def printarg(T):
     print("Lista delegacji\t: ", limit(E))
 
 
-def printhint( hint ):
+def printhint(hint):
     print("\nWynik poprawny         : ", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu        : ", sol, end="\n\n")
 
 
-def check( T, hint, sol ):
+def check(T, hint, sol):
     return hint == sol
 
-def generate_tests(num_tests = None):
+
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
     newtest = {}
-    newtest["arg"] = [4, [(0,1), (0,2), (0,3), (1,2), (1,3), (2,3)]]
+    newtest["arg"] = [4, [(0, 1), (0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]]
     newtest["hint"] = 3
     TESTS.append(newtest)
 
@@ -46,6 +48,15 @@ def generate_tests(num_tests = None):
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

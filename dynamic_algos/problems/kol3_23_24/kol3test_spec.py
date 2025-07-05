@@ -1,6 +1,7 @@
 # kol3test_spec.py
-from testy import *
 import sys
+
+from testy import *
 
 sys.setrecursionlimit(1000000)
 

@@ -1,5 +1,6 @@
-from kol3testy import runtests
 from typing import List
+
+from kol3testy import runtests
 
 
 def orchard(T: List[int], m: int) -> int:

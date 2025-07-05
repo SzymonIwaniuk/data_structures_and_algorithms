@@ -1,3 +1,6 @@
+from typing import List
+
+
 def dfs_visit(w, visited):
     for m in M[w]:
         if not visited[m]:
@@ -8,7 +11,7 @@ def dfs_visit(w, visited):
     return False
 
 
-def binworker(M):
+def binworker(M: List[List[int]]) -> int:
     n = len(M)
     global match
     match = [-1] * n

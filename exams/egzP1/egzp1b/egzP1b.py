@@ -1,5 +1,6 @@
-from egzP1btesty import runtests
 from collections import deque
+
+from egzP1btesty import runtests
 
 
 def convert_to_list(G):

@@ -1,5 +1,6 @@
-from egz1btesty import runtests
 from math import inf
+
+from egz1btesty import runtests
 
 
 def planets(D, C, T, E):

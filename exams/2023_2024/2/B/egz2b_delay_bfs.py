@@ -1,5 +1,6 @@
-from egz2btesty import runtests
 from collections import deque
+
+from egz2btesty import runtests
 
 inf = float("inf")
 

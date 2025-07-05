@@ -1,6 +1,7 @@
-from heapq import heappush, heappop
-from egz1atesty import runtests
+from heapq import heappop, heappush
 from typing import Tuple
+
+from egz1atesty import runtests
 
 
 def convert_to_list(

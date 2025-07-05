@@ -1,8 +1,8 @@
 # kolutesty.py
+from copy import deepcopy
+
 from testy import *
 from zad8test_spec import ALLOWED_TIME, TEST_SPEC, gentest
-
-from copy import deepcopy
 
 
 def copyarg(arg):

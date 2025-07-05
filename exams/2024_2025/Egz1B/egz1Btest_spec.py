@@ -1,4 +1,5 @@
-from testy import MY_random, MY_modulus
+from testy import MY_modulus, MY_random
+
 ALLOWED_TIME = 100
 
 
@@ -46,11 +47,13 @@ def gentest(V, E, hint):
         limit -= 1
 
     if len(pairs) != E:
-        print("Unable to generate enough unique edges, it is best to use prime numbers for V to avoid repeating edge cycles")
+        print(
+            "Unable to generate enough unique edges, it is best to use prime numbers for V to avoid repeating edge cycles"
+        )
         exit(1)
 
     edges = []
-    for (a, b) in pairs:
+    for a, b in pairs:
         edges.append((ids[a], ids[b]))
 
     return (V, edges), hint

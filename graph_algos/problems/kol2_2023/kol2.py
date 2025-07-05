@@ -1,5 +1,6 @@
-from kol2testy import runtests
 from collections import deque
+
+from kol2testy import runtests
 
 
 def BFS(G, s, n):

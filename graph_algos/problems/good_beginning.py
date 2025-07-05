@@ -5,8 +5,10 @@ skierowana wychodzaca z v. Zaproponowac algorytm, ktory dla podanego
 grafu stwierdza czy G posiada dobry poczatek; lista sasiedztwa;
 """
 
+from typing import List
 
-def beginning(G):
+
+def beginning(G: List[List[int]]) -> bool:
     def dfs_visit(i):
         nonlocal G, times, time, visited
         visited[i] = True

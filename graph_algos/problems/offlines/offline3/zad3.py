@@ -1,5 +1,6 @@
-from zad3testy import runtests
 from collections import deque
+
+from zad3testy import runtests
 
 
 def longer(G: list[list[int]], s: int, t: int) -> any:

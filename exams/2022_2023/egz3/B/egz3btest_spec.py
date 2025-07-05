@@ -7,8 +7,9 @@ sys.setrecursionlimit(1000000)
 
 ALLOWED_TIME = 100
 
-from testy import MY_random
 from math import inf
+
+from testy import MY_random
 
 # format testów
 # TESTS = [ {"arg":arg0, "hint": hint0}, {"arg":arg1, "hint": hint1}, ... ]

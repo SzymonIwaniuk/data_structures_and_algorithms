@@ -1,6 +1,5 @@
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 from typing import List
-
 
 INF = float("inf")
 

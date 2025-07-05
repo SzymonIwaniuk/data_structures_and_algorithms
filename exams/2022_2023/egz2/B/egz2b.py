@@ -1,5 +1,6 @@
-from egz2btesty import runtests
 from math import inf
+
+from egz2btesty import runtests
 
 
 def parking(X, Y):

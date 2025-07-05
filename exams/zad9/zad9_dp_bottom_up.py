@@ -1,5 +1,6 @@
-from zad9testy import runtests
 from math import inf
+
+from zad9testy import runtests
 
 
 def min_cost(O, C, T, L):

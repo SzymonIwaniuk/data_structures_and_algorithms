@@ -1,4 +1,4 @@
-from testy import MY_random, MY_modulus
+from testy import MY_modulus, MY_random
 
 ALLOWED_TIME = 3
 

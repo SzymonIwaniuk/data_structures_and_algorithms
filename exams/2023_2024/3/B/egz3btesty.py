@@ -1,8 +1,8 @@
 # kol2testy.py
-from testy import *
-from egz3btest_spec import ALLOWED_TIME, TEST_SPEC, gentest
-
 from copy import deepcopy
+
+from egz3btest_spec import ALLOWED_TIME, TEST_SPEC, gentest
+from testy import *
 
 
 def copyarg(arg):

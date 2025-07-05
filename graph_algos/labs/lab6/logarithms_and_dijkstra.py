@@ -4,8 +4,8 @@
 # 2 step: using the product of logarithms and dijkstra
 
 
-from math import log, exp
 import heapq
+from math import exp, log
 
 
 def conv_to_logs(

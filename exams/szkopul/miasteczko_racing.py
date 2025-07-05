@@ -1,5 +1,5 @@
+from heapq import heappop, heappush
 from math import inf
-from heapq import heappush, heappop
 from typing import List
 
 

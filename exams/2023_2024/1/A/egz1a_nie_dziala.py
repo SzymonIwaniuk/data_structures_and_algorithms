@@ -1,7 +1,8 @@
-from egz1atesty import runtests
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 from math import inf
-from typing import List, Tuple, Optional
+from typing import List, Optional, Tuple
+
+from egz1atesty import runtests
 
 
 def build_adjacency_list(

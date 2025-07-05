@@ -1,5 +1,5 @@
+from math import ceil, inf
 from queue import PriorityQueue
-from math import inf, ceil
 from typing import List, Tuple
 
 

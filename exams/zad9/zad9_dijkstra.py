@@ -1,6 +1,7 @@
-from zad9testy import runtests
+from heapq import heappop, heappush
 from math import inf
-from heapq import heappush, heappop
+
+from zad9testy import runtests
 
 
 def binary_search(array, max_dist, left, right):

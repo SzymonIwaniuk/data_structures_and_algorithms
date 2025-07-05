@@ -1,5 +1,5 @@
-import time
 import sys
+import time
 
 sys.setrecursionlimit(10000)
 TEST_SPEC = [

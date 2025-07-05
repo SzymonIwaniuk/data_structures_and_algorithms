@@ -1,15 +1,15 @@
 # egz1Atesty.py
-from testy import *
-from egz1Atest_spec import ALLOWED_TIME, TEST_SPEC, gentest
-
 from copy import deepcopy
 
+from egz1Atest_spec import ALLOWED_TIME, TEST_SPEC, gentest
+from testy import *
 
-def copyarg( arg ):
+
+def copyarg(arg):
     return deepcopy(arg)
 
 
-def printarg(K,P,R):
+def printarg(K, P, R):
     print("n             :\t", len(K))
     print("m             :\t", len(P))
     print("Procesory (P) :\t", limit(P))
@@ -17,19 +17,19 @@ def printarg(K,P,R):
     print("Zasięgi   (R) :\t", limit(R))
 
 
-def printhint( hint ):
+def printhint(hint):
     print("Prawidlowy wynik: ", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu : ", sol)
 
 
-def check( K, P, R, hint, sol ):
+def check(K, P, R, hint, sol):
     return hint == sol
 
 
-def generate_tests(num_tests = None):
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
@@ -43,10 +43,18 @@ def generate_tests(num_tests = None):
         newtest["hint"] = hint
         TESTS.append(newtest)
 
-
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

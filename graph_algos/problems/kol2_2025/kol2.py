@@ -1,6 +1,7 @@
-from kol2testy import runtests
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 from typing import Tuple
+
+from kol2testy import runtests
 
 """
 Szymon Filip Iwaniuk

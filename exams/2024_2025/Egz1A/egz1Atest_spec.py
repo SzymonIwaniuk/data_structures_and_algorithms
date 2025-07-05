@@ -7,7 +7,7 @@ ALLOWED_TIME = 100
 # TESTS = [ {"arg":arg0, "hint": hint0}, {"arg":arg1, "hint": hint1}, ... ]
 
 TEST_SPEC = [
-    (0,0,0,0,0,3),
+    (0, 0, 0, 0, 0, 3),
     (20, 40, 30, 4, 10, 6),
     (50, 40, 70, 10, 30, 12),
     (150, 40, 70, 20, 50, 45),
@@ -24,11 +24,11 @@ TEST_SPEC = [
 def gentest(nm, p, p1, r1, r2, hint):
     from testy import MY_random
 
-    if nm==0:
+    if nm == 0:
         K = [2, 12, 4]
-        R = [8,  5, 3]
+        R = [8, 5, 3]
         P = [14, 16, 0, 6, 10, 8]
-        return [P,K,R], 3
+        return [P, K, R], 3
     else:
         K = []
         R = []
@@ -37,23 +37,21 @@ def gentest(nm, p, p1, r1, r2, hint):
         POS = list(range(nm))
         KK = []
         for j in range(nm):
-            ind = MY_random() % len( POS )
+            ind = MY_random() % len(POS)
             i = POS[ind]
             POS[ind] = POS[-1]
             POS.pop()
-            
-            pos = 3*i + ( MY_random() % 3 )
+
+            pos = 3 * i + (MY_random() % 3)
             if MY_random() % 100 < p:
                 # katapulta
-                K.append( pos )
+                K.append(pos)
                 if MY_random() % 100 < p1:
-                    r = 1+MY_random() % r1
+                    r = 1 + MY_random() % r1
                 else:
-                    r = 1+MY_random() % r2
-                R.append( r )
+                    r = 1 + MY_random() % r2
+                R.append(r)
             else:
-                P.append( pos )
-            
-    return [P,K,R],hint
-    
+                P.append(pos)
 
+    return [P, K, R], hint

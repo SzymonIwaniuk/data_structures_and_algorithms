@@ -1,5 +1,6 @@
-from egzP5atesty import runtests
 from math import inf
+
+from egzP5atesty import runtests
 
 
 def inwestor(T):
