@@ -17,6 +17,7 @@ def DFS(G, s):
 
     return visited, parent
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     G = [[1], [2], [3, 4], [2, 4, 5], [2, 3], [3]]
     print(DFS(G, 0))

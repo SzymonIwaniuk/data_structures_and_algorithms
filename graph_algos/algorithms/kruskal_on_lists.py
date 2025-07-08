@@ -1,7 +1,9 @@
 from typing import List, Tuple
 
 
-def convert_to_edges(G: List[List[Tuple[int, int]]], n: int) -> List[Tuple[int, int, int]]:
+def convert_to_edges(
+    G: List[List[Tuple[int, int]]], n: int
+) -> List[Tuple[int, int, int]]:
     E = []
     for v in range(n):
         for u, d in G[v]:
@@ -11,7 +13,7 @@ def convert_to_edges(G: List[List[Tuple[int, int]]], n: int) -> List[Tuple[int, 
     return E
 
 
-def kruskal(G: List[List[Tuple[int, int]]]) -> List[Tuple[int,int,int]]:
+def kruskal(G: List[List[Tuple[int, int]]]) -> List[Tuple[int, int, int]]:
     n = len(G)
     p = [i for i in range(n)]
     r = [0] * n
