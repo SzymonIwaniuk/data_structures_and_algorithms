@@ -1,8 +1,8 @@
 from egz1Btesty import runtests
-from collections import deque
+from typing import List, Tuple
 
 
-def build_graph(E, V):
+def build_graph(E: List[Tuple[int, int]], V: int) -> List[List[int]]:
     graph = [[] for i in range(V)]
 
     for u, v in E:
@@ -11,7 +11,7 @@ def build_graph(E, V):
     return graph
 
 
-def critical(V, E):
+def critical(V: int, E: List[Tuple[int, int]]) -> int:
     graph = build_graph(E, V)
     counts = [[0]*V for i in range(V)]
     edges = [[False]*V for i in range(V)]
@@ -38,13 +38,6 @@ def critical(V, E):
                 critical += 1
 
     return critical
-
-
-
-
-
-
-    # return bridges(graph, V)
 
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
