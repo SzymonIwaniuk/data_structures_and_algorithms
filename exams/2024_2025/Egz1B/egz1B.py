@@ -12,7 +12,7 @@ def find_critical(graph, start, global_critical):
         visited[u] = True
 
         for v in graph[u]:
-            edges[v].append((u, v)) # To zabija szybkość programu, bo chyba w tych ostatnich testach jest ogromna ilość wchodzących krawędzi do wierzchołków
+            edges[v].append((u, v))
 
             if not visited[v]:
                 visit(v)

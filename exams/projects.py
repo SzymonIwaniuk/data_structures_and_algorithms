@@ -36,10 +36,6 @@ def projects(n, L):
 
     return max(times)
 
-
-
-
-
 if __name__ == '__main__':
     n = 4
     L = [(3, 1), (1, 2), (1, 0)]
