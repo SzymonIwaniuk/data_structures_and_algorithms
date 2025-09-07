@@ -9,6 +9,9 @@ def planets(D, C, T, E):
     dp[0][0] = 0
 
     for i in range(n):
+        if T[i][0] != i:
+            dp[T[i][0]][0] = min(dp[i][0] + T[i][1], dp[T[i][0]][0])
+
         for j in range(E + 1):
             if j != 0:
                 dp[i][j] = min(dp[i][j], dp[i][j - 1] + C[i])
@@ -18,8 +21,6 @@ def planets(D, C, T, E):
                 if j - dist >= 0:
                     dp[i + 1][j - dist] = min(dp[i + 1][j - dist], dp[i][j])
 
-            if T[i][0] != i:
-                dp[T[i][0]][0] = min(dp[i][0] + T[i][1], dp[T[i][0]][0])
 
     return min(dp[n - 1])
 

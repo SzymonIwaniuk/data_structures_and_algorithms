@@ -1,43 +1,37 @@
 from math import inf
-
 from egz3btesty import runtests
 
-
-def gen_kunlucky_set(T, k, max_num):
-    kset = set()
-    x = k
+def get_kunlucky_set(k ,n):
+    kunlucky_set = {}
     i = 1
 
-    while x <= max_num:
-        kset.add(x)
-        x = x + (x % i) + 7
+    while k <= n:
+        kunlucky_set[k] = True
+        k = k + (k % i) + 7
         i += 1
 
-    return kset
+    return kunlucky_set
 
 
 def kunlucky(T, k):
     n = len(T)
+    kunlucky_set = get_kunlucky_set(k, n)
+    j = 0
+    k_cnt = 0
+    res = 0
 
-    kset = gen_kunlucky_set(T, k, n)  # liczby z zakresu [1, ..., n], więc max_num = n
+    for i in range(n):
+        if T[i] in kunlucky_set:
+            if k_cnt + 1 > 2:
+                while T[j] not in kunlucky_set:
+                    j += 1
+                j += 1
+            else:
+                k_cnt += 1
+        res = max(res, i - j + 1)
 
-    i, j = 0, 0
-    cnt, tmp_len, max_len = 0, 0, 0
-
-    while j < n:
-        if cnt < 3:
-            T[j] = T[j] in kset  # 1 lub 0
-            tmp_len += 1
-            cnt += T[j]
-            j += 1
-            if cnt < 3 and max_len < tmp_len:
-                max_len = tmp_len
-        else:
-            tmp_len -= 1
-            cnt -= T[i]
-            i += 1
-
-    return max_len
+    res = max(res, i - j + 1)
+    return res
 
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
