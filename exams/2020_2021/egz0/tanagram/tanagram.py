@@ -21,12 +21,11 @@ def tanagram(x, y, t):
         pos2 = string_y[i][0]
         ch2 = string_y[i][1]
 
-
         if abs(pos1 - pos2) > t or ch1 != ch2:
             return False
 
     return True
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     runtests(tanagram)

@@ -29,5 +29,6 @@ def snow(T: int, I: List[Tuple[int, int]]) -> int:
 
     # Complexity O(nlogn)
 
+
 # zmien all_tests na True zeby uruchomic wszystkie testy
-runtests( snow, all_tests = True )
+runtests(snow, all_tests=True)

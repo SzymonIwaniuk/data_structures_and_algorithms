@@ -11,6 +11,7 @@ def build_graph(G, n):
 
     return graph
 
+
 def best_bike(B, n):
     bikes = [1 for _ in range(n)]
 
@@ -22,10 +23,9 @@ def best_bike(B, n):
 
 
 def dijkstra(graph, s, n):
-    distance = [float('inf')] * n
+    distance = [float("inf")] * n
     distance[s] = 0
     queue = [(0, s)]
-
 
     while queue:
         time, u = heappop(queue)
@@ -44,11 +44,12 @@ def armstrong(B, G, s, t):
     bikes = best_bike(B, n)
     from_s = dijkstra(graph, s, n)
     from_t = dijkstra(graph, t, n)
-    result = float('inf')
+    result = float("inf")
 
     for i in range(n):
         result = min(result, from_s[i] + from_t[i] * bikes[i])
 
     return int(result)
+
 
 runtests(armstrong, all_tests=True)

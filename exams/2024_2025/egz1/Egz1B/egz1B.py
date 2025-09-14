@@ -42,5 +42,6 @@ def critical(V, E):
 
     return len(global_critical)
 
+
 # zmien all_tests na True zeby uruchomic wszystkie testy
 runtests(critical, all_tests=True)

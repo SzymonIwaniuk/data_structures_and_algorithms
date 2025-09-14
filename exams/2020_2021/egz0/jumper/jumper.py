@@ -1,6 +1,7 @@
 from jumpertesty import runtests
 from heapq import heappush, heappop
 
+
 def build_basic_graph(G, n):
     graph = [[] for _ in range(n)]
 
@@ -31,7 +32,7 @@ def jumper(G, s, w):
     normal_graph = build_basic_graph(G, n)
     twomiles_graph = build_twomiles_graph(normal_graph, n)
 
-    distance = [[float('inf')] * 2 for _ in range(n)]
+    distance = [[float("inf")] * 2 for _ in range(n)]
     distance[s][0] = 0
     distance[s][1] = 0
     queue = [(0, s, 0)]
@@ -52,5 +53,6 @@ def jumper(G, s, w):
 
     # print(distance)
     return min(distance[w])
+
 
 runtests(jumper)

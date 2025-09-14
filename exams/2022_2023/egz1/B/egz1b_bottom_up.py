@@ -21,7 +21,6 @@ def planets(D, C, T, E):
                 if j - dist >= 0:
                     dp[i + 1][j - dist] = min(dp[i + 1][j - dist], dp[i][j])
 
-
     return min(dp[n - 1])
 
 

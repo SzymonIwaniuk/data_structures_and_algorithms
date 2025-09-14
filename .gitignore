@@ -13,3 +13,7 @@ exams/zad9
 graph_algos/problems/egz*
 dynamic_algos/problems/offline8
 dynamic_algos/problems/egz_2022_2023_b
+
+
+# zip
+*.zip

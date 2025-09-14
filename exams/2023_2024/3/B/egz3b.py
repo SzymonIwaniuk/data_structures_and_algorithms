@@ -1,7 +1,8 @@
 from math import inf
 from egz3btesty import runtests
 
-def get_kunlucky_set(k ,n):
+
+def get_kunlucky_set(k, n):
     kunlucky_set = {}
     i = 1
 

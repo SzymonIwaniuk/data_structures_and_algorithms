@@ -4,10 +4,10 @@ from egz1btesty import runtests
 
 def kstrong(T: List[int], k: int) -> int:
     n = len(T)
-    dp = [[float('-inf')] * (k + 1) for _ in range(n)]
+    dp = [[float("-inf")] * (k + 1) for _ in range(n)]
 
     def rec(i, s):
-        if dp[i][s] != float('-inf'):
+        if dp[i][s] != float("-inf"):
             return dp[i][s]
 
         if i < 0:
@@ -25,8 +25,6 @@ def kstrong(T: List[int], k: int) -> int:
 
     rec(n - 1, k)
     return max(max(dp[i]) for i in range(n))
-
-
 
 
 if __name__ == "__main__":

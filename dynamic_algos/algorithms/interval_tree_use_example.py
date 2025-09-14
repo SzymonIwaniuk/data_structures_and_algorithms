@@ -7,13 +7,14 @@ Implementation of a structure based on a interval tree that allows summing
 array values from index i to j and swapping the array element in O(logn).
 """
 
+
 # Class for tree node
 class Node:
     def __init__(self, val: int):
         self.parent = None
         self.left = None
         self.right = None
-        self.val= val
+        self.val = val
 
     # Changing leaf value == changing subarray sum
     def change_value(self, num: int):
@@ -35,9 +36,10 @@ class IntervalTree:
         # + ensuring that adding an item has O(1) amortized complexity.
         self.buffor_length = 2 ** (ceil(log2(l)))
         # List of tree leaves
-        self.leafs  = [Node(tab[i]) if i < l else Node(0) for i in range(self.buffor_length)]
+        self.leafs = [
+            Node(tab[i]) if i < l else Node(0) for i in range(self.buffor_length)
+        ]
         self.root = self._build(self.leaves)
-
 
     # Build tree
     def _build(self, leaves):
@@ -60,7 +62,6 @@ class IntervalTree:
 
             queue.append(new_node)
 
-
     # Subsum from index i to j
     def subsum(self, i, j):
         def _subsum_rec(node, l, r, cur_i, cur_j):
@@ -71,14 +72,15 @@ class IntervalTree:
 
             mid = (l + r) // 2
 
-            return _subsum_rec(node.left, l, mid, cur_i, cur_j) + \
-            _subsum_rec(node.right, mid + 1, r, cur_i, cur_j)
+            return _subsum_rec(node.left, l, mid, cur_i, cur_j) + _subsum_rec(
+                node.right, mid + 1, r, cur_i, cur_j
+            )
 
         return _subsum_rec(self.root, 0, self.buffor_length - 1, i, j)
 
 
-if __name__ == '__main__':
-    array = [3,1,2,5,4,7]
+if __name__ == "__main__":
+    array = [3, 1, 2, 5, 4, 7]
 
     # instance creation
     interval_tree = IntervalTree(array)

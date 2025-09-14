@@ -5,30 +5,33 @@ from egz3Atest_spec import ALLOWED_TIME, TEST_SPEC, gentest
 from copy import deepcopy
 
 
-def copyarg( arg ):
-    return arg #deepcopy(arg)
+def copyarg(arg):
+    return arg  # deepcopy(arg)
 
 
-def printarg( H, k ):
+def printarg(H, k):
     print("Wysokosci drzew : ", limit(H))
     print("Liczba drzew    : ", len(H))
     print("Parametr k      : ", k)
 
 
-def printhint( hint ):
-    if hint < 0: hint = -hint
+def printhint(hint):
+    if hint < 0:
+        hint = -hint
     print("Wynik poprawny  : ", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu : ", sol)
 
 
-def check( H, k, hint, sol ):
-    if hint < 0: hint = -hint
+def check(H, k, hint, sol):
+    if hint < 0:
+        hint = -hint
     return hint == sol
 
-def generate_tests(num_tests = None):
+
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
@@ -36,7 +39,7 @@ def generate_tests(num_tests = None):
     k = 1
     hint = 4
     newtest = {}
-    newtest["arg"] = [H,k]
+    newtest["arg"] = [H, k]
     newtest["hint"] = hint
     TESTS.append(newtest)
 
@@ -53,6 +56,15 @@ def generate_tests(num_tests = None):
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

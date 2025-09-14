@@ -5,7 +5,7 @@ from heapq import heappush, heappop, heapify
 
 def kstrong(T: List[int], k: int) -> int:
     n = len(T)
-    res = float('-inf')
+    res = float("-inf")
 
     for i in range(n):
         smallest = []
@@ -33,12 +33,6 @@ def kstrong(T: List[int], k: int) -> int:
             res = max(res, total - sum_smallest)
 
     return res
-
-
-
-
-
-
 
 
 if __name__ == "__main__":

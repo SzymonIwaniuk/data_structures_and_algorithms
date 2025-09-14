@@ -5,30 +5,31 @@ from egz2Btest_spec import ALLOWED_TIME, TEST_SPEC, gentest
 from copy import deepcopy
 
 
-def copyarg( arg ):
-    return arg #deepcopy(arg)
+def copyarg(arg):
+    return arg  # deepcopy(arg)
 
 
-def printarg( T ):
+def printarg(T):
     print("Sekwencja gry    : ", limit(T))
 
 
-def printhint( hint ):
+def printhint(hint):
     print("Wynik poprawny   : ", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu  : ", sol)
 
 
-def check( T, hint, sol ):
+def check(T, hint, sol):
     return hint == sol
 
-def generate_tests(num_tests = None):
+
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
-    T =  [5, 4, 3, 2, 4, 3, 1] 
+    T = [5, 4, 3, 2, 4, 3, 1]
     hint = 3
     newtest = {}
     newtest["arg"] = [T]
@@ -48,6 +49,15 @@ def generate_tests(num_tests = None):
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(
+        copyarg,
+        printarg,
+        printhint,
+        printsol,
+        check,
+        generate_tests,
+        all_tests,
+        f,
+        ALLOWED_TIME,
+    )

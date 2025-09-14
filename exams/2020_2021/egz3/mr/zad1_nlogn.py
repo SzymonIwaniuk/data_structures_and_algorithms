@@ -39,16 +39,15 @@ def mr(X):
             lds[i] = j
 
             if j > 0:
-                #print(lds_parent[i], stack_lds[j-1][1])
-                lds_parent[i] = stack_lds[j-1][1]
-
+                # print(lds_parent[i], stack_lds[j-1][1])
+                lds_parent[i] = stack_lds[j - 1][1]
 
     lis = [1] * n
     lis_parent = [None] * n
-    stack_lis = [(X[-1], n-1)]
+    stack_lis = [(X[-1], n - 1)]
     top_lis = 1
 
-    for i in range(n-2, -1, -1):
+    for i in range(n - 2, -1, -1):
         if X[i] < stack_lis[-1][0]:
             top_lis += 1
             lis[i] = top_lis
@@ -62,10 +61,10 @@ def mr(X):
             lis[i] = j
 
             if j > 0:
-                #print(lis_parent[i], stack_lis[j-1][1])
-                lis_parent[i] = stack_lis[j-1][1]
+                # print(lis_parent[i], stack_lis[j-1][1])
+                lis_parent[i] = stack_lis[j - 1][1]
 
-    #print(stack_lis)
+    # print(stack_lis)
 
     max_l = 0
     index = 0

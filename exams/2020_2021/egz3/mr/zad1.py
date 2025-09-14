@@ -1,5 +1,6 @@
 from zad1testy import runtests
 
+
 def mr(X):
     n = len(X)
 
@@ -13,12 +14,11 @@ def mr(X):
 
     lis = [1] * n
     lis_parent = [None] * n
-    for i in range(n-1, -1, -1):
-        for j in range(i+1, n):
+    for i in range(n - 1, -1, -1):
+        for j in range(i + 1, n):
             if X[j] > X[i] and lis[j] + 1 > lis[i]:
                 lis[i] = lis[j] + 1
                 lis_parent[i] = j
-
 
     max_l = 0
     index = 0
